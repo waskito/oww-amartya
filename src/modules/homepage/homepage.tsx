@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Box, Button, ScaleFade, Fade, SlideFade } from "@chakra-ui/react";
 import Cookies from "js-cookie";
 import ReactAudioPlayer from "react-audio-player";
+import sleep from "sleep-promise";
 
 import NavBar from "components/section/navbar";
 import Hero from "components/section/hero";
@@ -21,26 +22,24 @@ interface Props {
   intro: boolean;
 }
 
-const HERO = {
-  INTRO: "INTRO",
-  LOOP: "LOOP",
-};
-
 const HomePage: React.FC<Props> = ({ intro }: Props) => {
   const audioRef = useRef(null);
   const cookieIntro = intro ? intro : getCookie(INTRO_COOKIE_NAME);
   const [isWatched, setWatched] = useState(cookieIntro);
   const [isMuted, setMuted] = useState(false);
-  const [currentHero, setCurrentHero] = useState(HERO.INTRO);
+  const [heroIntro, setHeroIntro] = useState(true);
+  const [heroLoop, setHeroLoop] = useState(false);
 
   const handleWatched = () => {
     Cookies.set(INTRO_COOKIE_NAME, 1, { expires: 30 });
     setWatched(true);
   };
 
-  const handleKainIntro = (): void => {
-    if (currentHero === HERO.LOOP) return;
-    setCurrentHero(HERO.LOOP);
+  const handleKainIntro = async (): Promise<void> => {
+    if (heroLoop) return;
+    setHeroLoop(true);
+    await sleep(5 * 100);
+    setHeroIntro(false);
   };
 
   useEffect(() => {
@@ -81,7 +80,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
           <Box className="landingPage" pos="relative" h="100vh" w="100%">
             <Box
               as={Fade}
-              in={currentHero === HERO.INTRO}
+              in={heroIntro}
               unmountOnExit
               pos="absolute"
               w="100%"
@@ -103,7 +102,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
             </Box>
             <Box
               as={Fade}
-              in={currentHero === HERO.LOOP}
+              in={heroLoop}
               unmountOnExit
               pos="absolute"
               w="100%"
