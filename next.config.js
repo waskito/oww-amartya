@@ -2,7 +2,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const nextConfig = {
-  target: 'server',
   /**
    * Ignoring ESLint on build in favor of GitLab CI.
    *
