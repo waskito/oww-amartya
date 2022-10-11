@@ -38,7 +38,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
   const handleKainIntro = async (): Promise<void> => {
     if (heroLoop) return;
     setHeroLoop(true);
-    await sleep(5 * 100);
+    await sleep(3 * 100);
     setHeroIntro(false);
   };
 
