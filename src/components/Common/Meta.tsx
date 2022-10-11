@@ -1,16 +1,27 @@
-import React from 'react';
-import { NextSeo } from 'next-seo';
+import React from "react";
+import { NextSeo } from "next-seo";
 
 const Meta = () => {
   return (
     <>
       <NextSeo
-        title="Gaspack Frontend Boilerplate"
-        description="Gaspack Frontend Boilerplate"
+        title="Amartya - An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection"
+        description="An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection."
         openGraph={{
-          images: [{ url: '/images/icons/gaspack-logo.svg' }],
+          title:
+            "Amartya - An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection",
+          description:
+            "An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection.",
+          images: [
+            {
+              url: "/images/og-amartya.png",
+              width: 1200,
+              height: 630,
+              alt: "Amartya",
+              type: "image/png",
+            },
+          ],
         }}
-        
       />
     </>
   );
