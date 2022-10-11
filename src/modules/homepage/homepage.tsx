@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Button, ScaleFade, SlideFade } from "@chakra-ui/react";
 import Cookies from "js-cookie";
 import ReactAudioPlayer from "react-audio-player";
@@ -21,6 +21,7 @@ interface Props {
 }
 
 const HomePage: React.FC<Props> = ({ intro }: Props) => {
+  const audioRef = useRef(null);
   const cookieIntro = intro ? intro : getCookie(INTRO_COOKIE_NAME);
   const [isWatched, setWatched] = useState(cookieIntro);
   const [isMuted, setMuted] = useState(false);
@@ -29,6 +30,14 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
     Cookies.set(INTRO_COOKIE_NAME, 1, { expires: 30 });
     setWatched(true);
   };
+
+  useEffect(() => {
+    if (isWatched) {
+      const playerEl = audioRef as any;
+      const player = playerEl?.current?.audioEl?.current;
+      if (player) player.play();
+    }
+  }, []);
 
   const handleMute = () => {
     setMuted(!isMuted);
@@ -112,9 +121,9 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
               <Unmute sx={{ width: 140, height: 140, color: "black" }} />
             )}
             <ReactAudioPlayer
+              ref={audioRef}
               key={isWatched ? "a" : "b"}
               src="/images/music.wav"
-              autoPlay
               controls={false}
               muted={isMuted}
               style={{ visibility: "hidden" }}
