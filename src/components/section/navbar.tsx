@@ -14,7 +14,7 @@ const NavBarPage: React.FC = () => {
         <Container maxW={4000} w="100%" px={50}>
           <Flex mt="25px" justifyContent="space-between" alignItems="center">
             <NextLink href="/" passHref>
-              <Link>
+              <a>
                 <Image
                   w="140px"
                   h="auto"
@@ -22,7 +22,7 @@ const NavBarPage: React.FC = () => {
                   src="/images/nav-logo-amartya.svg"
                   alt="Amartya"
                 />
-              </Link>
+              </a>
             </NextLink>
             <DrawerButton />
           </Flex>
