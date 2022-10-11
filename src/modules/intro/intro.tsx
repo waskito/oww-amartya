@@ -174,7 +174,6 @@ const IntroPage: React.FC<Props> = ({ onWatchedCallback }: Props) => {
                 left="calc(50% - 420px)"
                 right="auto"
               />
-              initia
               <SlideFade
                 offsetY={"30px"}
                 in={currentHero === HEROES.TEXT_TITLE}
