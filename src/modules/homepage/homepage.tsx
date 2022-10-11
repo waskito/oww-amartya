@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Button, ScaleFade, SlideFade } from "@chakra-ui/react";
+import { Box, Button, ScaleFade, Fade, SlideFade } from "@chakra-ui/react";
 import Cookies from "js-cookie";
 import ReactAudioPlayer from "react-audio-player";
 
@@ -15,20 +15,32 @@ import Intro from "modules/intro/intro";
 import { INTRO_COOKIE_NAME } from "../../../config";
 import { getCookie } from "utils/cookies";
 import { Mute, Unmute } from "components/Icons";
+import { handleClientScriptLoad } from "next/script";
 
 interface Props {
   intro: boolean;
 }
+
+const HERO = {
+  INTRO: "INTRO",
+  LOOP: "LOOP",
+};
 
 const HomePage: React.FC<Props> = ({ intro }: Props) => {
   const audioRef = useRef(null);
   const cookieIntro = intro ? intro : getCookie(INTRO_COOKIE_NAME);
   const [isWatched, setWatched] = useState(cookieIntro);
   const [isMuted, setMuted] = useState(false);
+  const [currentHero, setCurrentHero] = useState(HERO.INTRO);
 
   const handleWatched = () => {
     Cookies.set(INTRO_COOKIE_NAME, 1, { expires: 30 });
     setWatched(true);
+  };
+
+  const handleKainIntro = (): void => {
+    if (currentHero === HERO.LOOP) return;
+    setCurrentHero(HERO.LOOP);
   };
 
   useEffect(() => {
@@ -36,6 +48,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
       const playerEl = audioRef as any;
       const player = playerEl?.current?.audioEl?.current;
       if (player) player.play();
+      // handleKainIntro();
     }
   }, [audioRef, isWatched]);
 
@@ -66,7 +79,38 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
         </ScaleFade>
         <SlideFade offsetY="100vh" in={isWatched} unmountOnExit>
           <Box className="landingPage" pos="relative" h="100vh" w="100%">
-            <Box pos="absolute" w="100%" ml="auto" mr="auto" zIndex={-2}>
+            <Box
+              as={Fade}
+              in={currentHero === HERO.INTRO}
+              unmountOnExit
+              pos="absolute"
+              w="100%"
+              ml="auto"
+              mr="auto"
+              zIndex={-2}
+            >
+              <video
+                style={{ marginLeft: "auto", marginRight: "auto" }}
+                width="2000px"
+                height="auto"
+                autoPlay
+                muted
+                preload="auto"
+                onEnded={() => handleKainIntro()}
+              >
+                <source src="/images/kain-opening.webm" type="video/webm" />
+              </video>
+            </Box>
+            <Box
+              as={Fade}
+              in={currentHero === HERO.LOOP}
+              unmountOnExit
+              pos="absolute"
+              w="100%"
+              ml="auto"
+              mr="auto"
+              zIndex={-1}
+            >
               <video
                 style={{ marginLeft: "auto", marginRight: "auto" }}
                 width="2000px"
@@ -76,7 +120,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
                 preload="auto"
                 loop
               >
-                <source src="images/kain loop_8mb.webm" type="video/webm" />
+                <source src="/images/kain-loop.webm" type="video/webm" />
               </video>
             </Box>
 

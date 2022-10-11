@@ -85,8 +85,14 @@ export default class MyDocument extends Document {
           <link
             rel="preload"
             as="video"
-            href="/images/kain loop_8mb.webm"
-            key="kain"
+            href="/images/kain-opening.webm"
+            key="kain_opening"
+          />
+          <link
+            rel="preload"
+            as="video"
+            href="/images/kain-loop.webm"
+            key="kain_loop"
           />
           <link
             rel="preload"
