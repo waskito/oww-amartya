@@ -183,6 +183,7 @@ const IntroPage: React.FC<Props> = ({ onWatchedCallback }: Props) => {
                   textStyle="PlayfairDisplayMedium"
                   textAlign="center"
                   textShadow="0px 0px 50px #000000"
+                  zIndex={10}
                 >
                   Sura Dira Jayaningrat Lebur dening Pangastuti
                 </Text>

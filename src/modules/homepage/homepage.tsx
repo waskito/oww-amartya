@@ -37,7 +37,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
       const player = playerEl?.current?.audioEl?.current;
       if (player) player.play();
     }
-  }, []);
+  }, [audioRef, isWatched]);
 
   const handleMute = () => {
     setMuted(!isMuted);
