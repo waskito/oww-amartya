@@ -5,11 +5,10 @@ const Meta = () => {
   return (
     <>
       <NextSeo
-        title="Amartya - An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection"
+        title="Amartya - Indonesia art-based NFT"
         description="An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection."
         openGraph={{
-          title:
-            "Amartya - An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection",
+          title: "Amartya - Indonesia art-based NFT",
           description:
             "An art-based NFT project which lore is inspired by Indonesia’s Sacred Pattern Collection.",
           images: [
