@@ -193,31 +193,31 @@ const theme = extendTheme(<ThemeOverride>{
         opacity: 1,
         color: "white",
       },
-      "li:nth-child(1)": {
+      "li:nth-of-type(1)": {
         marginTop: -270,
       },
-      "li:nth-child(2)": {
+      "li:nth-of-type(2)": {
         marginTop: -190,
       },
-      "li:nth-child(3)": {
+      "li:nth-of-type(3)": {
         marginTop: -160,
       },
-      "li:nth-child(4)": {
+      "li:nth-of-type(4)": {
         marginTop: -130,
       },
-      "li:nth-child(5)": {
+      "li:nth-of-type(5)": {
         marginTop: -110,
       },
-      "li:nth-child(6)": {
+      "li:nth-of-type(6)": {
         marginTop: -130,
       },
-      "li:nth-child(7)": {
+      "li:nth-of-type(7)": {
         marginTop: -160,
       },
-      "li:nth-child(8)": {
+      "li:nth-of-type(8)": {
         marginTop: -190,
       },
-      "li:nth-child(9)": {
+      "li:nth-of-type(9)": {
         marginTop: -270,
       },
       "slick-slide": {
