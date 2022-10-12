@@ -10,6 +10,9 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
+import { Twitter } from "components/Icons";
+import Linkedin from "components/Icons/Linkedin";
+import Globe from "components/Icons/Globe";
 
 const Founder: React.FC = () => {
   return (
@@ -141,17 +144,31 @@ const Founder: React.FC = () => {
                 his ideas and tell stories through in-depth, believable
                 characters and intricate world-building.
               </Text>
-              <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                textStyle="DidactGothic"
+              <Flex
+                flexDirection="row"
+                alignItems="center"
+                gap="32px"
                 mt="33px"
-                fontSize="18px"
-                textAlign="center"
               >
-                Twitter
-              </Link>
+                <Link
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Linkedin sx={{ width: "30px", height: "30px" }} />
+                </Link>
+              </Flex>
             </WrapItem>
 
             <WrapItem
@@ -188,17 +205,31 @@ const Founder: React.FC = () => {
                 Ariel has worked in the investing space for over 8 years, and is
                 an avid enthusiast of Indonesian classic patterns.
               </Text>
-              <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                textStyle="DidactGothic"
+              <Flex
+                flexDirection="row"
+                alignItems="center"
+                gap="32px"
                 mt="33px"
-                fontSize="18px"
-                textAlign="center"
               >
-                Twitter
-              </Link>
+                <Link
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Linkedin sx={{ width: "30px", height: "30px" }} />
+                </Link>
+              </Flex>
             </WrapItem>
 
             <WrapItem
@@ -237,65 +268,32 @@ const Founder: React.FC = () => {
                 representing Vonix, an Exchange for cryptocurrency that is based
                 in Indonesia.
               </Text>
-              <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                textStyle="DidactGothic"
+              <Flex
+                flexDirection="row"
+                alignItems="center"
+                gap="32px"
                 mt="33px"
-                fontSize="18px"
-                textAlign="center"
               >
-                Twitter
-              </Link>
+                <Link
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Linkedin sx={{ width: "30px", height: "30px" }} />
+                </Link>
+              </Flex>
             </WrapItem>
-            <WrapItem
-              width={["80%", "24%"]}
-              justifyContent="flex-start"
-              mt="30px"
-              color="white"
-              fontWeight={400}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-            >
-              <Image
-                src="/images/image-founder-04.png"
-                sx={{ maxWidth: "240px" }}
-              />
-              <Text
-                mb="8px"
-                mt="32px"
-                fontSize="32px"
-                textAlign="center"
-                textStyle="PlayfairDisplayMedium"
-              >
-                Vonix
-              </Text>
-              <Text
-                fontSize="18px"
-                textAlign="center"
-                textStyle="DidactGothic"
-                my={2}
-              >
-                Exchange Partner
-              </Text>
-              <Text fontSize="18px" textAlign="center" textStyle="DidactGothic">
-                vonix.com
-              </Text>
-              <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                textStyle="DidactGothic"
-                mt="33px"
-                fontSize="18px"
-                textAlign="center"
-              >
-                Twitter
-              </Link>
-            </WrapItem>
-
             <WrapItem
               width={["80%", "24%"]}
               justifyContent="flex-start"
@@ -317,6 +315,64 @@ const Founder: React.FC = () => {
                 textAlign="center"
                 textStyle="PlayfairDisplayMedium"
               >
+                Vonix
+              </Text>
+              <Text
+                fontSize="18px"
+                textAlign="center"
+                textStyle="DidactGothic"
+                my={2}
+              >
+                Exchange Partner
+              </Text>
+              <Flex
+                flexDirection="row"
+                alignItems="center"
+                gap="32px"
+                mt="33px"
+              >
+                <Link
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://vonix.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Globe sx={{ width: "30px", height: "30px" }} />
+                </Link>
+              </Flex>
+            </WrapItem>
+
+            <WrapItem
+              width={["80%", "24%"]}
+              justifyContent="flex-start"
+              mt="30px"
+              color="white"
+              fontWeight={400}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+            >
+              <Image
+                src="/images/image-founder-04.png"
+                sx={{ maxWidth: "240px" }}
+              />
+              <Text
+                mb="8px"
+                mt="32px"
+                fontSize="32px"
+                textAlign="center"
+                textStyle="PlayfairDisplayMedium"
+              >
                 Gaspack
               </Text>
               <Text
@@ -327,20 +383,31 @@ const Founder: React.FC = () => {
               >
                 Launch Partner
               </Text>
-              <Text fontSize="18px" textAlign="center" textStyle="DidactGothic">
-                gaspack.xyz
-              </Text>
-              <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                textStyle="DidactGothic"
+              <Flex
+                flexDirection="row"
+                alignItems="center"
+                gap="32px"
                 mt="33px"
-                fontSize="18px"
-                textAlign="center"
               >
-                Twitter
-              </Link>
+                <Link
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://gaspack.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Globe sx={{ width: "30px", height: "30px" }} />
+                </Link>
+              </Flex>
             </WrapItem>
           </Wrap>
         </Flex>
