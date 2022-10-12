@@ -37,11 +37,11 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
 
   useEffect(() => {
     if (router.pathname === "/") {
-      if (isWatched) initPlay();
+      if (isWatched && audioRef) initPlay();
     } else {
-      initPlay();
+      if (audioRef) initPlay();
     }
-  }, [router, isWatched]);
+  }, [router, isWatched, audioRef]);
 
   const page = getLayout(
     <Box>
