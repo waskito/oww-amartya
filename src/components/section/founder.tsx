@@ -203,15 +203,6 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com/Arielindra23"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontSize="18px"
-                  textAlign="center"
-                >
-                  <Twitter sx={{ width: "30px", height: "30px" }} />
-                </Link>
-                <Link
                   href="https://www.linkedin.com/in/ariel-indra-cfa-28165b68"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -266,15 +257,6 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com/Tharrr13"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontSize="18px"
-                  textAlign="center"
-                >
-                  <Twitter sx={{ width: "30px", height: "30px" }} />
-                </Link>
-                <Link
                   href="https://www.linkedin.com/in/tariputri"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -328,15 +310,6 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com/Vonix_ID"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontSize="18px"
-                  textAlign="center"
-                >
-                  <Twitter sx={{ width: "30px", height: "30px" }} />
-                </Link>
-                <Link
                   href="https://vonix.id"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -344,6 +317,15 @@ const Founder: React.FC = () => {
                   textAlign="center"
                 >
                   <Globe sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://twitter.com/Vonix_ID"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
                 </Link>
               </Flex>
             </WrapItem>
@@ -392,15 +374,6 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com/gaspackxyz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontSize="18px"
-                  textAlign="center"
-                >
-                  <Twitter sx={{ width: "30px", height: "30px" }} />
-                </Link>
-                <Link
                   href="https://gaspack.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -408,6 +381,15 @@ const Founder: React.FC = () => {
                   textAlign="center"
                 >
                   <Globe sx={{ width: "30px", height: "30px" }} />
+                </Link>
+                <Link
+                  href="https://twitter.com/gaspackxyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fontSize="18px"
+                  textAlign="center"
+                >
+                  <Twitter sx={{ width: "30px", height: "30px" }} />
                 </Link>
               </Flex>
             </WrapItem>
