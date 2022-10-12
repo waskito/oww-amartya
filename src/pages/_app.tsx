@@ -33,7 +33,7 @@ const App = (nextApp: NextAppProps): JSX.Element => {
           <WrongNetwork />
           <WalletProvider>
             <Fonts />
-            <NextNProgress />
+            <NextNProgress color="#A67320" />
             <AppLayout {...nextApp} />
           </WalletProvider>
         </DAppProvider>
