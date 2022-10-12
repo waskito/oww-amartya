@@ -110,7 +110,7 @@ const Founder: React.FC = () => {
           >
             <WrapItem
               color="white"
-              width={["80vw", "24%"]}
+              width={["80vw", "23%"]}
               fontWeight={400}
               display="flex"
               flexDirection="column"
@@ -151,7 +151,7 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com"
+                  href="https://twitter.com/WisesaAntonio"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
@@ -159,21 +159,12 @@ const Founder: React.FC = () => {
                 >
                   <Twitter sx={{ width: "30px", height: "30px" }} />
                 </Link>
-                <Link
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontSize="18px"
-                  textAlign="center"
-                >
-                  <Linkedin sx={{ width: "30px", height: "30px" }} />
-                </Link>
               </Flex>
             </WrapItem>
 
             <WrapItem
               color="white"
-              width={["80%", "24%"]}
+              width={["80%", "23%"]}
               justifyContent="flex-start"
               fontWeight={400}
               display="flex"
@@ -212,7 +203,7 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com"
+                  href="https://twitter.com/Arielindra23"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
@@ -221,7 +212,7 @@ const Founder: React.FC = () => {
                   <Twitter sx={{ width: "30px", height: "30px" }} />
                 </Link>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/ariel-indra-cfa-28165b68"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
@@ -234,7 +225,7 @@ const Founder: React.FC = () => {
 
             <WrapItem
               color="white"
-              width={["80%", "24%"]}
+              width={["80%", "23%"]}
               justifyContent="flex-start"
               fontWeight={400}
               display="flex"
@@ -275,7 +266,7 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com"
+                  href="https://twitter.com/Tharrr13"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
@@ -284,7 +275,7 @@ const Founder: React.FC = () => {
                   <Twitter sx={{ width: "30px", height: "30px" }} />
                 </Link>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/tariputri"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
@@ -295,7 +286,7 @@ const Founder: React.FC = () => {
               </Flex>
             </WrapItem>
             <WrapItem
-              width={["80%", "24%"]}
+              width={["80%", "36%"]}
               justifyContent="flex-start"
               mt="30px"
               color="white"
@@ -325,6 +316,11 @@ const Founder: React.FC = () => {
               >
                 Exchange Partner
               </Text>
+              <Text fontSize="18px" textAlign="center" textStyle="DidactGothic">
+                Vonix began in 2021, envisioned as a consumer-grade enterprise
+                product. Vonix is an easy-to-use, yet secure and trusted
+                comprehensive financial service platform.
+              </Text>
               <Flex
                 flexDirection="row"
                 alignItems="center"
@@ -332,7 +328,7 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com"
+                  href="https://twitter.com/Vonix_ID"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
@@ -353,7 +349,7 @@ const Founder: React.FC = () => {
             </WrapItem>
 
             <WrapItem
-              width={["80%", "24%"]}
+              width={["80%", "36%"]}
               justifyContent="flex-start"
               mt="30px"
               color="white"
@@ -383,6 +379,12 @@ const Founder: React.FC = () => {
               >
                 Launch Partner
               </Text>
+              <Text fontSize="18px" textAlign="center" textStyle="DidactGothic">
+                Gaspack are an NFT launchpad that empowers creators, artists,
+                and brands from building their IP into NFT projects, from
+                development phase to the launching, scaling, and maintaining
+                them as sustainable businesses.
+              </Text>
               <Flex
                 flexDirection="row"
                 alignItems="center"
@@ -390,7 +392,7 @@ const Founder: React.FC = () => {
                 mt="33px"
               >
                 <Link
-                  href="https://twitter.com"
+                  href="https://twitter.com/gaspackxyz"
                   target="_blank"
                   rel="noopener noreferrer"
                   fontSize="18px"
