@@ -79,20 +79,20 @@ const DrawerButton: React.FC = () => {
             </Box>
             <Box mt={50} color="black">
               <Flex flexDirection="column" fontSize="26px">
-                <NextLink href="#about" passHref>
-                  <Link>About</Link>
+                <NextLink href="/#SectionAbout" passHref>
+                  <Link textStyle="DidactGothic">About</Link>
                 </NextLink>
                 <NextLink href="/thenineimmortals" passHref>
-                  <Link>The Nine Immortals</Link>
+                  <Link textStyle="DidactGothic">The Nine Immortals</Link>
                 </NextLink>
                 <NextLink href="/thejourney" passHref>
-                  <Link>The Journeys</Link>
+                  <Link textStyle="DidactGothic">The Journeys</Link>
                 </NextLink>
-                <NextLink href="#mint" passHref>
-                  <Link>Mint</Link>
+                <NextLink href="/#SectionAbout" passHref>
+                  <Link textStyle="DidactGothic">Mint</Link>
                 </NextLink>
                 <NextLink href="#team" passHref>
-                  <Link>Our Team</Link>
+                  <Link textStyle="DidactGothic">Our Team</Link>
                 </NextLink>
               </Flex>
             </Box>

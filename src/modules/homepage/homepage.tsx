@@ -137,7 +137,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
             <Journey />
 
             {/* section mint amartya */}
-            <Mint />
+            {/* <Mint /> */}
 
             {/* section footer */}
             <Founder />
@@ -159,9 +159,11 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
             onClick={handleMute}
           >
             {!isMuted ? (
-              <Mute sx={{ width: 140, height: 140, color: "black" }} />
+              <Mute sx={{ width: "100px", height: "100px", color: "black" }} />
             ) : (
-              <Unmute sx={{ width: 140, height: 140, color: "black" }} />
+              <Unmute
+                sx={{ width: "100px", height: "100px", color: "black" }}
+              />
             )}
             <ReactAudioPlayer
               ref={audioRef}
@@ -170,6 +172,7 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
               controls={false}
               muted={isMuted}
               style={{ visibility: "hidden" }}
+              loop={true}
             />
           </Button>
         )}

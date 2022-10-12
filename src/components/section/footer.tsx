@@ -9,7 +9,7 @@ import {
   Container,
   Link,
 } from "@chakra-ui/react";
-import { Discord, Instagram, Twitter, Youtube } from "components/Icons";
+import { Discord, Twitter } from "components/Icons";
 
 const Footer: React.FC = () => {
   return (
@@ -49,12 +49,12 @@ const Footer: React.FC = () => {
             justifySelf="flex-end"
           >
             <Link
-              href="https://youtube.com"
+              href="https://discord.gg/amartya"
               target="_blank"
               rel="noopener noreferrer"
               _hover={{ opacity: 0.7 }}
             >
-              <Youtube />
+              <Discord />
             </Link>
             <Link
               href="https://twitter.com/AmartyaNFT"
@@ -63,22 +63,6 @@ const Footer: React.FC = () => {
               _hover={{ opacity: 0.7 }}
             >
               <Twitter />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              _hover={{ opacity: 0.7 }}
-            >
-              <Instagram />
-            </Link>
-            <Link
-              href="https://discord.gg/amartya"
-              target="_blank"
-              rel="noopener noreferrer"
-              _hover={{ opacity: 0.7 }}
-            >
-              <Discord />
             </Link>
           </Flex>
         </Flex>
