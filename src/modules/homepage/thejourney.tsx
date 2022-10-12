@@ -31,7 +31,7 @@ const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
         justifyContent="center"
         alignItems="end"
         bg="black"
-        backgroundImage="url('/images/journey-bg.jpg')"
+        backgroundImage="url('/images/bg-thejourney.webp')"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"

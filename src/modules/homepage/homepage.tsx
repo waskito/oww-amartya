@@ -39,6 +39,9 @@ const HomePage: React.FC<Props> = ({
 
   return (
     <>
+      <SlideFade offsetY="-20px" in={isWatched} unmountOnExit>
+        <NavBar />
+      </SlideFade>
       <Box
         className="home-page"
         w="100%"
@@ -106,7 +109,7 @@ const HomePage: React.FC<Props> = ({
             </Box>
 
             {/* hero */}
-            <NavBar />
+
             <Hero />
 
             {/* section about */}
