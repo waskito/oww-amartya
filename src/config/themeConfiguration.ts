@@ -74,7 +74,7 @@ const theme = extendTheme(<ThemeOverride>{
     global: {
       body: {
         // bg: '#6A5A33',
-        bg: "#6A5A33 url('/images/bg-body-0.5.webp') repeat-y center/cover",
+        bg: "#6A5A33 url('/images/bg-body.webp') repeat-y center/cover",
         overflowY: "auto",
         overflowX: "hidden",
         MozOsxFontSmoothing: "grayscale",
