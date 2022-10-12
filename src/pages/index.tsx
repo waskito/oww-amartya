@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import get from "lodash/get";
 import { NextPage } from "interfaces/next";
 import { NextPageContext } from "next";
-import { INTRO_COOKIE_NAME } from "../../config";
+import { AUDIO_MUTED_KEY, INTRO_COOKIE_NAME } from "../../config";
 import { getCookieFromServer } from "utils/cookies";
 
 import LandingPage from "modules/homepage/homepage";
@@ -33,9 +33,15 @@ const LPage = ({
   />
 );
 
-LPage.getInitialProps = async ({ req }: NextPageContext) => {
+export async function getServerSideProps({ req }): Promise<any> {
   const intro = Boolean(getCookieFromServer(INTRO_COOKIE_NAME, req));
-  return { intro };
-};
+  const muted = Boolean(getCookieFromServer(AUDIO_MUTED_KEY, req) === "true");
+  return {
+    props: {
+      intro,
+      muted,
+    },
+  };
+}
 
 export default LPage;

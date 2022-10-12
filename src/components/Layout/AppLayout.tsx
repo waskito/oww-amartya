@@ -5,8 +5,9 @@ import { Box } from "@chakra-ui/react";
 import Cookies from "js-cookie";
 import { getCookie } from "utils/cookies";
 
-import { INTRO_COOKIE_NAME } from "../../../config";
+import { INTRO_COOKIE_NAME, AUDIO_MUTED_KEY } from "../../../config";
 import { useRouter } from "next/router";
+import { cloneDeep } from "lodash";
 
 const AppLayout = ({ Component, pageProps }: NextAppProps) => {
   const audioRef = useRef(null);
@@ -14,6 +15,9 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
   const cookieIntro = pageProps.intro
     ? pageProps.intro
     : getCookie(INTRO_COOKIE_NAME);
+  const cookieMuted = pageProps.muted
+    ? pageProps.muted
+    : getCookie(AUDIO_MUTED_KEY);
   const [isWatched, setWatched] = useState(cookieIntro);
   const [isPlayed, setIsPlayed] = useState(false);
 
@@ -21,15 +25,15 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
     Cookies.set(INTRO_COOKIE_NAME, 1, { expires: 30 });
     setWatched(true);
   };
-  const [isMuted, setMuted] = useState(false);
+  const [isMuted, setMuted] = useState(cookieMuted);
   const getLayout = Component?.layout ?? ((children: JSX.Element) => children);
 
   const handleMute = () => {
     if (!isPlayed) {
       initPlay();
-      return;
     }
     setMuted(!isMuted);
+    Cookies.set(AUDIO_MUTED_KEY, !isMuted, { expires: 30 });
   };
 
   const onPlayCallback = () => {
@@ -42,6 +46,7 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
     if (player) {
       player.play();
     }
+    setIsPlayed(true);
   }, [audioRef]);
 
   useEffect(() => {
@@ -57,13 +62,13 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
       <Component
         {...pageProps}
         handleMute={handleMute}
-        isMuted={isMuted || !isPlayed}
+        isMuted={isMuted}
         isWatched={isWatched}
         handleWatched={handleWatched}
       />
       <ReactAudioPlayer
         ref={audioRef}
-        key={isWatched ? "introWatched" : "introNotWatched"}
+        key={isWatched ? "watched" : "notWatched"}
         listenInterval={1000}
         src="/images/music.wav"
         controls={false}
