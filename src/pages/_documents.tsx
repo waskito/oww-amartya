@@ -103,7 +103,7 @@ export default class MyDocument extends Document {
           <link
             rel="preload"
             as="image"
-            href="/images/bg-body-0.5.webp"
+            href="/images/bg-body.webp"
             key="bg_light"
           />
           <link

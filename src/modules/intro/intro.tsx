@@ -72,13 +72,23 @@ const IntroPage: React.FC<Props> = ({ onWatchedCallback }: Props) => {
         alignItems="center"
         h="100vh"
         w="100vw"
-        style={{
-          background:
-            currentHero === HEROES.IMAGE
-              ? "url('/images/bg-hero-image.webp') no-repeat cover"
-              : "url('/images/bg-body-0.5.webp') repeat-y cover",
-        }}
+        bg="#6A5A33 url('/images/bg-body.webp') repeat-y center/cover"
       >
+        {currentHero === HEROES.IMAGE && (
+          <Box
+            pos="absolute"
+            top="0"
+            left="0"
+            className="intro-page"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            h="100vh"
+            w="100vw"
+            bg="url('/images/bg-hero-image.webp') no-repeat center/cover"
+          />
+        )}
         <Flex
           id="container"
           pos="absolute"

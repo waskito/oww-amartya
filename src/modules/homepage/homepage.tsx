@@ -50,7 +50,7 @@ const HomePage: React.FC<Props> = ({
           pos="fixed"
           w="100vw"
           h="100vh"
-          bg="#6A5A33 url('/images/bg-body-0.5.webp') repeat-y center/cover"
+          bg="#6A5A33 url('/images/bg-body.webp') repeat-y center/cover"
           objectFit="cover"
         />
         <ScaleFade initialScale={0.7} in={!isWatched} unmountOnExit>
