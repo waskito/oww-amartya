@@ -3,8 +3,12 @@ import { Box, Flex, Image, Container, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 import DrawerButton from "components/section/drawer";
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
 
-const NavBarPage: React.FC = () => {
+const MainNavbar: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
   // const { isOpen, onOpen, onClose } = useDisclosure()
   // const btnRef = React.useRef()
 
@@ -23,11 +27,11 @@ const NavBarPage: React.FC = () => {
               />
             </a>
           </NextLink>
-          <DrawerButton />
+          <DrawerButton isMuted={isMuted} handleMute={handleMute} />
         </Flex>
       </Container>
     </Box>
   );
 };
 
-export default NavBarPage;
+export default MainNavbar;

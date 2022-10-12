@@ -4,7 +4,12 @@ import NextLink from "next/link";
 
 import DrawerButton from "components/section/drawer";
 
-const NavBar: React.FC = () => {
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
+
+const NavBarPage: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
   return (
     <>
       <Box pos="fixed" top={0} w="100%" zIndex={2}>
@@ -15,7 +20,7 @@ const NavBar: React.FC = () => {
                 <Image id="logo" src="/images/icons/logo-white-amartya.svg" />
               </a>
             </NextLink>
-            <DrawerButton />
+            <DrawerButton isMuted={isMuted} handleMute={handleMute} />
           </Flex>
         </Container>
       </Box>
@@ -23,4 +28,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default NavBarPage;

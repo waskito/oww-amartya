@@ -15,6 +15,7 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
     ? pageProps.intro
     : getCookie(INTRO_COOKIE_NAME);
   const [isWatched, setWatched] = useState(cookieIntro);
+  const [isPlayed, setIsPlayed] = useState(false);
 
   const handleWatched = () => {
     Cookies.set(INTRO_COOKIE_NAME, 1, { expires: 30 });
@@ -24,7 +25,15 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
   const getLayout = Component?.layout ?? ((children: JSX.Element) => children);
 
   const handleMute = () => {
+    if (!isPlayed) {
+      initPlay();
+      return;
+    }
     setMuted(!isMuted);
+  };
+
+  const onPlayCallback = () => {
+    setIsPlayed(true);
   };
 
   const initPlay = useCallback((): void => {
@@ -48,7 +57,7 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
       <Component
         {...pageProps}
         handleMute={handleMute}
-        isMuted={isMuted}
+        isMuted={isMuted || !isPlayed}
         isWatched={isWatched}
         handleWatched={handleWatched}
       />
@@ -62,6 +71,7 @@ const AppLayout = ({ Component, pageProps }: NextAppProps) => {
         style={{ visibility: "hidden" }}
         loop={true}
         autoPlay={isWatched}
+        onPlay={onPlayCallback}
       />
     </Box>
   );

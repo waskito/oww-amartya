@@ -16,9 +16,14 @@ import {
   Link,
   Flex,
 } from "@chakra-ui/react";
-import { Discord, Twitter } from "components/Icons";
+import { Discord, Twitter, Mute, Unmute } from "components/Icons";
 
-const DrawerButton: React.FC = () => {
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
+
+const DrawerButton: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -120,14 +125,25 @@ const DrawerButton: React.FC = () => {
 
           <DrawerFooter>
             <Button
+              bg="transparant"
+              borderRadius="100%"
+              zIndex={1}
               h={140}
               w={140}
-              onClick={onClose}
               pos="fixed"
               bottom={50}
               right={50}
+              onClick={handleMute}
             >
-              <Image src="/images/icons/icon-wave.svg" />
+              {!isMuted ? (
+                <Mute
+                  sx={{ width: "100px", height: "100px", color: "black" }}
+                />
+              ) : (
+                <Unmute
+                  sx={{ width: "100px", height: "100px", color: "black" }}
+                />
+              )}
             </Button>
           </DrawerFooter>
         </DrawerContent>

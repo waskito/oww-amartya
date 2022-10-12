@@ -21,7 +21,7 @@ const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
 
   return (
     <Box>
-      <NavBarPage />
+      <NavBarPage isMuted={isMuted} handleMute={handleMute} />
 
       <Box
         mx="auto"

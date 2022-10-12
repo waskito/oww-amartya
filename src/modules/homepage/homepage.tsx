@@ -40,7 +40,7 @@ const HomePage: React.FC<Props> = ({
   return (
     <>
       <SlideFade offsetY="-20px" in={isWatched} unmountOnExit>
-        <NavBar />
+        <NavBar isMuted={isMuted} handleMute={handleMute} />
       </SlideFade>
       <Box
         className="home-page"

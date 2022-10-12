@@ -120,7 +120,7 @@ const Thenineimmortals: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
           blur="200px"
           boxShadow="0px 0px 100px #000000"
         ></Box>
-        <NavBarPage />
+        <NavBarPage isMuted={isMuted} handleMute={handleMute} />
 
         <Box w="100%" maxW="100vw" h="100vh !important" pos="relative">
           <Slider {...settings}>
