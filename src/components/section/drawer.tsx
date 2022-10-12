@@ -88,7 +88,7 @@ const DrawerButton: React.FC = () => {
                 <NextLink href="/thejourney" passHref>
                   <Link textStyle="DidactGothic">The Journeys</Link>
                 </NextLink>
-                <NextLink href="/#founder" passHref>
+                <NextLink href="/#mint" passHref>
                   <Link textStyle="DidactGothic">Mint</Link>
                 </NextLink>
                 <NextLink href="#team" passHref>
