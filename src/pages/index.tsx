@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import get from "lodash/get";
 import { NextPage } from "interfaces/next";
 import { NextPageContext } from "next";
-import { AUDIO_TIME_KEY, INTRO_COOKIE_NAME } from "../../config";
+import { INTRO_COOKIE_NAME } from "../../config";
 import { getCookieFromServer } from "utils/cookies";
 
 import LandingPage from "modules/homepage/homepage";
@@ -35,7 +35,6 @@ const LPage = ({
 
 LPage.getInitialProps = async ({ req }: NextPageContext) => {
   const intro = Boolean(getCookieFromServer(INTRO_COOKIE_NAME, req));
-  const audioTime = getCookieFromServer(AUDIO_TIME_KEY, req);
   return { intro };
 };
 
