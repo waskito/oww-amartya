@@ -15,10 +15,10 @@ const Founder: React.FC = () => {
   return (
     <Box
       className="section"
-      id="team"
+      id="founder"
       w="100%"
       py="100px"
-      bg="linear-gradient(180deg, rgba(0, 0, 0, 0) -10%, #000000 100%)"
+      bg="linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #000000 100%)"
     >
       <Container className="section" maxW="1080px">
         <Flex
@@ -40,6 +40,7 @@ const Founder: React.FC = () => {
             top="-50%"
             right="0%"
             filter="auto"
+            opacity={0.52}
             blur="200px"
             boxShadow="0px 0px 500px #000000"
           ></Box>

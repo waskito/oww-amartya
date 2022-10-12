@@ -4,6 +4,13 @@ import { NextPage } from "interfaces/next";
 
 import TheJourney from "modules/homepage/thejourney";
 
-const Journey: NextPage = () => <TheJourney />;
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
 
-export default Journey;
+const TheJourneyPage = ({ handleMute, isMuted }: Props) => (
+  <TheJourney handleMute={handleMute} isMuted={isMuted} />
+);
+
+export default TheJourneyPage;

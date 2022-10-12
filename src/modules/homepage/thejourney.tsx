@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import ReactAudioPlayer from "react-audio-player";
-import { Button, Image, Box, Text, Container } from "@chakra-ui/react";
+import { Button, Box, Text, Container } from "@chakra-ui/react";
 
 import { Mute, Unmute } from "components/Icons";
 
 import NavBarPage from "components/section/navbar-page";
 
-const TheJourney: React.FC = () => {
-  const btnRef = React.useRef();
-  const [isMuted, setMuted] = useState(false);
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
 
-  const handleMute = () => {
-    setMuted(!isMuted);
-  };
+const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
+  const btnRef = React.useRef();
 
   const [state, setState] = useState("type1");
 
@@ -587,18 +586,10 @@ const TheJourney: React.FC = () => {
         _focus={{ boxShadow: "transparant" }}
       >
         {!isMuted ? (
-          <Mute sx={{ width: 140, height: 140, color: "white" }} />
+          <Mute sx={{ width: "100px", height: "100px", color: "white" }} />
         ) : (
-          <Unmute sx={{ width: 140, height: 140, color: "white" }} />
+          <Unmute sx={{ width: "100px", height: "100px", color: "white" }} />
         )}
-        {/* <Image h="auto" w='60px' src="/images/icons/white-wave.svg" /> */}
-        <ReactAudioPlayer
-          src="/images/music.wav"
-          autoPlay
-          controls={false}
-          muted={isMuted}
-          style={{ visibility: "hidden" }}
-        />
       </Button>
     </Box>
   );

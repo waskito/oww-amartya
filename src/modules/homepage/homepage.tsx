@@ -1,7 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, Button, ScaleFade, Fade, SlideFade } from "@chakra-ui/react";
-import Cookies from "js-cookie";
-import ReactAudioPlayer from "react-audio-player";
 import sleep from "sleep-promise";
 
 import NavBar from "components/section/navbar";
@@ -13,46 +11,30 @@ import Mint from "components/section/mint";
 import Footer from "components/section/footer";
 import Founder from "components/section/founder";
 import Intro from "modules/intro/intro";
-import { INTRO_COOKIE_NAME } from "../../../config";
-import { getCookie } from "utils/cookies";
 import { Mute, Unmute } from "components/Icons";
-import { handleClientScriptLoad } from "next/script";
-
 interface Props {
   intro: boolean;
+  isMuted: boolean;
+  handleMute: () => void;
+  isWatched: boolean;
+  handleWatched: () => void;
 }
 
-const HomePage: React.FC<Props> = ({ intro }: Props) => {
-  const audioRef = useRef(null);
-  const cookieIntro = intro ? intro : getCookie(INTRO_COOKIE_NAME);
-  const [isWatched, setWatched] = useState(cookieIntro);
-  const [isMuted, setMuted] = useState(false);
+const HomePage: React.FC<Props> = ({
+  intro,
+  isMuted,
+  handleMute,
+  isWatched,
+  handleWatched,
+}: Props) => {
   const [heroIntro, setHeroIntro] = useState(true);
   const [heroLoop, setHeroLoop] = useState(false);
-
-  const handleWatched = () => {
-    Cookies.set(INTRO_COOKIE_NAME, 1, { expires: 30 });
-    setWatched(true);
-  };
 
   const handleKainIntro = async (): Promise<void> => {
     if (heroLoop) return;
     setHeroLoop(true);
     await sleep(3 * 100);
     setHeroIntro(false);
-  };
-
-  useEffect(() => {
-    if (isWatched) {
-      const playerEl = audioRef as any;
-      const player = playerEl?.current?.audioEl?.current;
-      if (player) player.play();
-      // handleKainIntro();
-    }
-  }, [audioRef, isWatched]);
-
-  const handleMute = () => {
-    setMuted(!isMuted);
   };
 
   return (
@@ -165,15 +147,6 @@ const HomePage: React.FC<Props> = ({ intro }: Props) => {
                 sx={{ width: "100px", height: "100px", color: "black" }}
               />
             )}
-            <ReactAudioPlayer
-              ref={audioRef}
-              key={isWatched ? "a" : "b"}
-              src="/images/music.wav"
-              controls={false}
-              muted={isMuted}
-              style={{ visibility: "hidden" }}
-              loop={true}
-            />
           </Button>
         )}
       </Box>

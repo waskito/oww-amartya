@@ -4,6 +4,13 @@ import { NextPage } from "interfaces/next";
 
 import Thenineimmortals from "modules/homepage/thenineimmortals";
 
-const nineimmortals: NextPage = () => <Thenineimmortals />;
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
 
-export default nineimmortals;
+const TheNineImmortalsPage = ({ handleMute, isMuted }: Props) => (
+  <Thenineimmortals handleMute={handleMute} isMuted={isMuted} />
+);
+
+export default TheNineImmortalsPage;

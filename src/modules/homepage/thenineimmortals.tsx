@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NextLink from "next/link";
-import ReactAudioPlayer from "react-audio-player";
 import {
   useDisclosure,
   Image,
@@ -61,7 +60,12 @@ const slickactive = {
   backgroundColor: "#000",
 };
 
-const Thenineimmortals: React.FC = () => {
+interface Props {
+  isMuted: boolean;
+  handleMute: () => void;
+}
+
+const Thenineimmortals: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -94,12 +98,6 @@ const Thenineimmortals: React.FC = () => {
     ),
   };
 
-  const [isMuted, setMuted] = useState(false);
-
-  const handleMute = () => {
-    setMuted(!isMuted);
-  };
-
   return (
     <Box h="100vh" w="100vw" sx={{ overflow: "hidden" }}>
       <Container
@@ -119,7 +117,7 @@ const Thenineimmortals: React.FC = () => {
           bg="#000"
           opacity="0.75"
           filter="auto"
-          blur="0px"
+          blur="200px"
           boxShadow="0px 0px 100px #000000"
         ></Box>
         <NavBarPage />
@@ -1230,17 +1228,12 @@ const Thenineimmortals: React.FC = () => {
             _focus={{ boxShadow: "transparant" }}
           >
             {!isMuted ? (
-              <Mute sx={{ width: 140, height: 140, color: "white" }} />
+              <Mute sx={{ width: "100px", height: "100px", color: "white" }} />
             ) : (
-              <Unmute sx={{ width: 140, height: 140, color: "white" }} />
+              <Unmute
+                sx={{ width: "100px", height: "100px", color: "white" }}
+              />
             )}
-            <ReactAudioPlayer
-              src="/images/music.wav"
-              autoPlay
-              controls={false}
-              muted={isMuted}
-              style={{ visibility: "hidden" }}
-            />
           </Button>
         </Box>
       </Container>

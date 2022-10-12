@@ -62,6 +62,7 @@ const About: React.FC = () => {
     <Box
       as={Element}
       name="SectionAbout"
+      id="about"
       className="section"
       w="100%"
       display="flex"
