@@ -18,7 +18,7 @@ const Founder: React.FC = () => {
   return (
     <Box
       className="section"
-      id="founder"
+      id="founders"
       w="100%"
       py="100px"
       bg="linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #000000 100%)"
@@ -97,7 +97,7 @@ const Founder: React.FC = () => {
                 textAlign="center"
                 textShadow="0px 0px 50px #000000"
               >
-                The Founder
+                The Founders
               </Text>
             </Flex>
           </Box>

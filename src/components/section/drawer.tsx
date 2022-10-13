@@ -91,18 +91,18 @@ const DrawerButton: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
                   <Link textStyle="DidactGothic">The Nine Immortals</Link>
                 </NextLink>
                 <NextLink href="/thejourney" passHref>
-                  <Link textStyle="DidactGothic">The Journeys</Link>
+                  <Link textStyle="DidactGothic">The Journey</Link>
                 </NextLink>
                 <NextLink href="/#mint" passHref>
                   <Link textStyle="DidactGothic">Mint</Link>
                 </NextLink>
-                <NextLink href="#team" passHref>
+                <NextLink href="/#team" passHref>
                   <Link textStyle="DidactGothic">Our Team</Link>
                 </NextLink>
               </Flex>
             </Box>
             <Box>
-              <Flex mt="20px" flexDirection="row" gap="40px">
+              <Flex mt="30px" flexDirection="row" gap="40px">
                 <Link
                   color="black"
                   href="https://discord.gg/amartya"
