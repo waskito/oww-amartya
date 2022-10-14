@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Box, Text, Container } from "@chakra-ui/react";
+import HorizontalScroll from "react-scroll-horizontal";
 
 import { Mute, Unmute } from "components/Icons";
 
@@ -45,7 +46,23 @@ const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
             justifyContent="center"
             alignItems="end"
           >
-            <Box w="100vw" overflowX="auto" pb="140px">
+            <Box pos="fixed" bottom="240px" left="10vw">
+              <Text fontSize="72px" lineHeight="120%">
+                The
+              </Text>
+              <Text fontSize="72px" lineHeight="120%">
+                Journey
+              </Text>
+            </Box>
+            <HorizontalScroll
+              style={{
+                bottom: "140px",
+                marginLeft: "-16px",
+                marginRight: "-16px",
+                width: "100vw",
+              }}
+              className="theJourney-horizontal"
+            >
               <Box
                 display="flex"
                 ml="10vw"
@@ -63,20 +80,13 @@ const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
                 >
                   <Box w="420px" h="600px">
                     <Box
-                      pos="absolute"
+                      pos="fixed"
                       display="flex"
                       flexDirection="column"
                       justifyItems="start"
                       bottom={280}
                       zIndex="0"
-                    >
-                      <Text fontSize="72px" lineHeight="120%">
-                        The
-                      </Text>
-                      <Text fontSize="72px" lineHeight="120%">
-                        Journey
-                      </Text>
-                    </Box>
+                    ></Box>
                   </Box>
 
                   <Box
@@ -567,7 +577,7 @@ const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
                   </Box>
                 </Box>
               </Box>
-            </Box>
+            </HorizontalScroll>
           </Box>
         </Container>
       </Box>

@@ -223,6 +223,10 @@ const theme = extendTheme(<ThemeOverride>{
       "slick-slide": {
         height: "100vh",
       },
+      ".theJourney-horizontal > div": {
+        flexDirection: "row",
+        alignItems: "flex-end",
+      },
     },
   },
   sizes: {
