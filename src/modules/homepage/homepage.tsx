@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Box, Button, ScaleFade, Fade, SlideFade } from "@chakra-ui/react";
-import sleep from "sleep-promise";
 
 import NavBar from "components/section/navbar";
 import Hero from "components/section/hero";
@@ -30,10 +29,13 @@ const HomePage: React.FC<Props> = ({
   const [heroIntro, setHeroIntro] = useState(true);
   const [heroLoop, setHeroLoop] = useState(false);
 
-  const handleKainIntro = async (): Promise<void> => {
+  const handleKainIntro = (): void => {
     if (heroLoop) return;
     setHeroLoop(true);
-    await sleep(3 * 100);
+  };
+
+  const handleSecondKain = (): void => {
+    if (!heroIntro) return;
     setHeroIntro(false);
   };
 
@@ -103,6 +105,7 @@ const HomePage: React.FC<Props> = ({
                 muted
                 preload="auto"
                 loop
+                onLoadedData={() => handleSecondKain()}
               >
                 <source src="/images/kain-loop.webm" type="video/webm" />
               </video>
