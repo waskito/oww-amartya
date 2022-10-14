@@ -55,6 +55,7 @@ const TheJourney: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
               </Text>
             </Box>
             <HorizontalScroll
+              reverseScroll
               style={{
                 bottom: "140px",
                 marginLeft: "-16px",
