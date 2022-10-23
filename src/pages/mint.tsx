@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { AUDIO_MUTED_KEY } from "../../../config";
+import { AUDIO_MUTED_KEY } from "../../config";
 import { getCookieFromServer } from "utils/cookies";
 import Countdown from "modules/mint/Countdown";
 
