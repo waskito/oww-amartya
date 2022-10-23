@@ -2,13 +2,10 @@ import { useState } from "react";
 
 import { AUDIO_MUTED_KEY } from "../../config";
 import { getCookieFromServer } from "utils/cookies";
-import Countdown from "modules/mint/Countdown";
 
 import { mintStages } from "modules/mint/constants";
-import AvailableSection from "modules/mint/Available";
-import ConnectedSection from "modules/mint/Connected";
-import WhitelistedSection from "modules/mint/Whitelisted";
-import ConnectAllTheGate from "modules/mint/ConnectAllTheGate";
+import MintMainComponent from "modules/mint";
+import Head from "next/head";
 
 interface Props {
   isMuted: boolean;
@@ -17,49 +14,49 @@ interface Props {
 
 const MintPage = ({ handleMute, isMuted }: Props) => {
   const [stage, setStage] = useState(mintStages.countdown);
-
-  switch (stage) {
-    case mintStages.available:
-      return (
-        <AvailableSection
-          handleMute={handleMute}
-          isMuted={isMuted}
-          setStage={setStage}
+  return (
+    <>
+      <Head>
+        <title>Mint - Amartya</title>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/bg-mint-stage-1.png"
+          key="bg_mint_1"
         />
-      );
-    case mintStages.connected:
-      return (
-        <ConnectedSection
-          handleMute={handleMute}
-          isMuted={isMuted}
-          setStage={setStage}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/bg-mint-stage-2.png"
+          key="bg_mint_2"
         />
-      );
-    case mintStages.whitelisted:
-      return (
-        <WhitelistedSection
-          handleMute={handleMute}
-          isMuted={isMuted}
-          setStage={setStage}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/bg-gate-top-small.png"
+          key="bg_gate_top_small"
         />
-      );
-    case mintStages.connectAllGate:
-      return (
-        <ConnectAllTheGate
-          handleMute={handleMute}
-          isMuted={isMuted}
-          setStage={setStage}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/bg-gate-top-big.png"
+          key="bg_gate_top_big"
         />
-      );
-    default:
-      return (
-        <Countdown
-          handleMute={handleMute}
-          isMuted={isMuted}
-          setStage={setStage}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/bg-gate-bottom.png"
+          key="bg_gate_bottom"
         />
-      );
-  }
+      </Head>
+      <MintMainComponent
+        isMuted={isMuted}
+        handleMute={handleMute}
+        stage={stage}
+        setStage={(newStage) => setStage(newStage)}
+      />
+    </>
+  );
 };
 
 export async function getServerSideProps({ req }): Promise<any> {
