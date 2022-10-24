@@ -72,7 +72,7 @@ export default function WhitelistedSection({
                 textStyle="DidactGothic"
                 fontSize="30px"
                 fontWeight="400"
-                onClick={() => setStage(mintStages.connectAllGate)}
+                onClick={() => setStage(mintStages.mint)}
               >
                 TRANSCEND TO THE VAULT
               </Button>

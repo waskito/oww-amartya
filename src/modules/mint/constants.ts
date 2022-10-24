@@ -3,12 +3,16 @@ export const mintStages = {
   available: "available",
   connected: "connected",
   whitelisted: "whitelisted",
-  connectAllGate: "connectAllGate",
-  allGateLoading: "allGateLoading",
   mint: "mint",
-  inProcess: "inProcess",
   minted: "minted",
   mintFailed: "mintFailed",
   soldOut: "soldOut",
   onPause: "onPause",
+};
+
+export const mintingStages = {
+  connectAllGate: "connectAllGate",
+  allGateLoading: "allGateLoading",
+  mint: "mint",
+  inProcess: "inProcess",
 };

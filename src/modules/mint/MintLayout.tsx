@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Box, Text, Container } from "@chakra-ui/react";
+import { Button, Box } from "@chakra-ui/react";
 import clsx from "clsx";
 
 import { Mute, Unmute } from "components/Icons";
@@ -18,12 +18,7 @@ const greenBackgroundStages = [
   mintStages.onPause,
 ];
 
-const redBackgroundStages = [
-  mintStages.connectAllGate,
-  mintStages.allGateLoading,
-  mintStages.mint,
-  mintStages.inProcess,
-];
+const redBackgroundStages = [mintStages.mint];
 
 interface Props {
   isMuted: boolean;
@@ -38,14 +33,6 @@ const MintLayout: React.FC<Props> = ({
   children,
   stage,
 }: Props) => {
-  const btnRef = React.useRef();
-
-  const [state, setState] = useState("type1");
-
-  const toggle = (value) => {
-    setState(value);
-  };
-
   return (
     <Box>
       <NavbarMint isMuted={isMuted} handleMute={handleMute} />

@@ -8,7 +8,11 @@ import { mintStages } from "modules/mint/constants";
 import AvailableSection from "modules/mint/Available";
 import ConnectedSection from "modules/mint/Connected";
 import WhitelistedSection from "modules/mint/Whitelisted";
-import ConnectAllTheGate from "modules/mint/ConnectAllTheGate";
+import Mint from "modules/mint/Mint";
+import MintedSection from "./Minted";
+import MintFailedSection from "./MintFailed";
+import SoldOutSection from "./SoldOut";
+import OnPauseSection from "./OnPause";
 
 interface Props {
   isMuted: boolean;
@@ -18,6 +22,7 @@ interface Props {
 }
 
 const MintMainComponent = ({ stage, setStage, handleMute, isMuted }: Props) => {
+  const [total, setTotal] = useState(3);
   switch (stage) {
     case mintStages.available:
       return (
@@ -43,9 +48,43 @@ const MintMainComponent = ({ stage, setStage, handleMute, isMuted }: Props) => {
           setStage={setStage}
         />
       );
-    case mintStages.connectAllGate:
+    case mintStages.mint:
       return (
-        <ConnectAllTheGate
+        <Mint
+          handleMute={handleMute}
+          isMuted={isMuted}
+          setStage={setStage}
+          setTotal={setTotal}
+        />
+      );
+    case mintStages.minted:
+      return (
+        <MintedSection
+          handleMute={handleMute}
+          isMuted={isMuted}
+          setStage={setStage}
+          total={total}
+        />
+      );
+    case mintStages.mintFailed:
+      return (
+        <MintFailedSection
+          handleMute={handleMute}
+          isMuted={isMuted}
+          setStage={setStage}
+        />
+      );
+    case mintStages.soldOut:
+      return (
+        <SoldOutSection
+          handleMute={handleMute}
+          isMuted={isMuted}
+          setStage={setStage}
+        />
+      );
+    case mintStages.onPause:
+      return (
+        <OnPauseSection
           handleMute={handleMute}
           isMuted={isMuted}
           setStage={setStage}
