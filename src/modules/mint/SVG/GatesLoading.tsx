@@ -1,5 +1,6 @@
-import { isFunction } from "lodash";
 import React, { useCallback, useRef } from "react";
+import { isFunction } from "lodash";
+import clsx from "clsx";
 
 interface Props {
   onAnimationFinished?: () => void;
@@ -19,6 +20,14 @@ export default function GatesLoading({
   return (
     <>
       <style jsx>{`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
         @keyframes dash {
           from {
             stroke-dashoffset: 4599.75537109375;
@@ -30,7 +39,11 @@ export default function GatesLoading({
         .greenPath {
           stroke-dasharray: 4599.75537109375;
           stroke-dashoffset: 4599.75537109375;
-          animation: dash 5s linear forwards;
+          animation: dash 9s linear forwards;
+        }
+        .circle {
+          opacity: 0;
+          animation: fadeIn 0.5s linear forwards;
         }
       `}</style>
       <svg
@@ -40,18 +53,6 @@ export default function GatesLoading({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M437.801 360C536.936 360 617.301 279.635 617.301 180.5C617.301 81.3649 536.936 1 437.801 1C338.666 1 258.301 81.3649 258.301 180.5C258.301 279.635 338.666 360 437.801 360Z"
-          stroke="#F2F2F2"
-          strokeWidth="0.5"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M605.801 421.699C704.936 421.699 785.301 341.379 785.301 242.299C785.301 143.22 704.936 62.8994 605.801 62.8994C506.666 62.8994 426.301 143.22 426.301 242.299C426.301 341.379 506.666 421.699 605.801 421.699Z"
-          stroke="#F2F2F2"
-          strokeWidth="0.5"
-          strokeMiterlimit="10"
-        />
         <path
           d="M259.002 655.6L437.802 720.7L616.602 655.6L711.702 490.8L678.702 303.4L532.902 181.1H342.702L196.902 303.4L163.902 490.8L259.002 655.6Z"
           stroke="#F2F2F2"
@@ -63,46 +64,75 @@ export default function GatesLoading({
           strokeMiterlimit="10"
         />
         <path
+          d="M437.801 360C536.936 360 617.301 279.635 617.301 180.5C617.301 81.3649 536.936 1 437.801 1C338.666 1 258.301 81.3649 258.301 180.5C258.301 279.635 338.666 360 437.801 360Z"
+          stroke="#F2F2F2"
+          strokeWidth="0.5"
+          strokeMiterlimit="10"
+          className={clsx("c1", { circle: !withoutGreenPath })}
+        />
+        <path
+          d="M605.801 421.699C704.936 421.699 785.301 341.379 785.301 242.299C785.301 143.22 704.936 62.8994 605.801 62.8994C506.666 62.8994 426.301 143.22 426.301 242.299C426.301 341.379 506.666 421.699 605.801 421.699Z"
+          stroke="#F2F2F2"
+          strokeWidth="0.5"
+          strokeMiterlimit="10"
+          className={clsx("c2", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "7s" }}
+        />
+        <path
           d="M874.595 397.804C874.976 298.724 794.964 218.095 695.884 217.715C596.805 217.334 516.176 297.345 515.795 396.425C515.414 495.505 595.426 576.134 694.505 576.515C793.585 576.895 874.214 496.884 874.595 397.804Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c3", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "5s" }}
         />
         <path
           d="M664.406 752.601C763.485 752.49 843.716 672.081 843.606 573.001C843.495 473.921 763.085 393.69 664.005 393.801C564.925 393.911 484.695 474.321 484.806 573.401C484.916 672.481 565.326 752.711 664.406 752.601Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c4", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "3s" }}
         />
         <path
           d="M527.665 867.506C626.745 867.255 706.862 786.731 706.61 687.651C706.359 588.572 625.835 508.455 526.755 508.706C427.675 508.957 347.559 589.481 347.81 688.561C348.062 787.641 428.585 867.757 527.665 867.506Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c5", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "1s" }}
         />
         <path
           d="M527.77 688.374C527.902 589.294 447.689 508.866 348.609 508.734C249.529 508.602 169.102 588.815 168.97 687.895C168.838 786.975 249.051 867.402 348.13 867.534C447.21 867.667 527.638 787.453 527.77 688.374Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c6", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "8s" }}
         />
         <path
           d="M390.834 573.551C391.006 474.471 310.825 394.011 211.745 393.839C112.665 393.667 32.2059 473.848 32.0339 572.928C31.862 672.008 112.043 752.467 211.123 752.639C310.203 752.811 390.662 672.63 390.834 573.551Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c7", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "6s" }}
         />
         <path
           d="M180.4 576.5C279.48 576.5 359.8 496.18 359.8 397.1C359.8 298.02 279.48 217.7 180.4 217.7C81.3203 217.7 1 298.02 1 397.1C1 496.18 81.3203 576.5 180.4 576.5Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c8", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "4s" }}
         />
         <path
           d="M449.058 250.653C453.634 151.682 377.067 67.7386 278.041 63.1602C179.015 58.5818 95.0291 135.102 90.4533 234.073C85.8774 333.044 162.444 416.987 261.471 421.565C360.497 426.144 444.483 349.624 449.058 250.653Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
+          className={clsx("c9", { circle: !withoutGreenPath })}
+          style={{ animationDelay: "2s" }}
         />
         <path
           d="M664.4 573.1L528.6 488.2C517.7 481.4 512 468.6 514.3 456L514.4 455.6C516.6 442.9 526.3 432.9 538.9 430.2L695.5 396.8L537.4 419C524.7 420.8 512.1 414.7 505.7 403.5L505.3 402.8C498.9 391.7 499.8 377.7 507.8 367.6L606.1 241.7L499.4 360.1C490.8 369.7 477.2 373 465.2 368.6L464.3 368.3C452.2 363.9 444 352.6 443.6 339.8L438 180.5L432.4 339.8C431.9 352.7 423.7 363.9 411.7 368.3L410.8 368.6C398.7 373 385.2 369.6 376.6 360.1L269.9 241.7L368.2 367.6C376.1 377.7 377.1 391.7 370.7 402.8L370.3 403.5C363.9 414.6 351.3 420.8 338.6 419L180.5 396.8L337.1 430.2C349.7 432.9 359.4 442.9 361.6 455.6L361.7 456C363.9 468.7 358.3 481.4 347.4 488.2L211.6 573.1L353.4 497.8C364.8 491.8 378.6 493.2 388.5 501.5L388.6 501.6C398.5 509.9 402.3 523.3 398.3 535.5L348.7 688.2L409 539.2C413.8 527.3 425.4 519.5 438.3 519.5C451.2 519.5 462.7 527.3 467.6 539.2L527.9 688.2L478.3 535.5C474.3 523.3 478.2 509.9 488 501.6L488.1 501.5C498 493.2 511.8 491.8 523.2 497.8L664.4 573.1Z"
