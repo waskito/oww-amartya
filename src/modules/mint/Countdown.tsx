@@ -35,7 +35,7 @@ export default function CountdownSection({
           <Box
             w="866px"
             h="502px"
-            bg="url(/images/mint/bg-gate-top-small.png) no-repeat"
+            bg="url(/images/mint/bg-gate-top-small.webp) no-repeat"
             backgroundSize="cover"
             py="70px"
             color="black"
@@ -98,7 +98,7 @@ export default function CountdownSection({
           <Flex
             w="646px"
             h="240px"
-            bg="url(/images/mint/bg-gate-bottom.png) no-repeat"
+            bg="url(/images/mint/bg-gate-bottom.webp) no-repeat"
             backgroundSize="cover"
             py="57px"
             flexDirection="column"

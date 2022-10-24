@@ -21,32 +21,38 @@ const MintPage = ({ handleMute, isMuted }: Props) => {
         <link
           rel="preload"
           as="image"
-          href="/images/mint/bg-mint-stage-1.png"
+          href="/images/mint/bg-mint-stage-1.webp"
           key="bg_mint_1"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/mint/bg-mint-stage-2.png"
+          href="/images/mint/bg-mint-stage-2.webp"
           key="bg_mint_2"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/mint/bg-gate-top-small.png"
+          href="/images/mint/bg-gate-top-small.webp"
           key="bg_gate_top_small"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/mint/bg-gate-top-big.png"
+          href="/images/mint/bg-gate-top-big.webp"
           key="bg_gate_top_big"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/mint/bg-gate-bottom.png"
+          href="/images/mint/bg-gate-bottom.webp"
           key="bg_gate_bottom"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/mint-black-button-288.webp"
+          key="bg_black_button"
         />
       </Head>
       <MintMainComponent

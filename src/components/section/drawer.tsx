@@ -49,7 +49,7 @@ const DrawerButton: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
       >
         <DrawerOverlay />
         <DrawerContent
-          backgroundImage="url('/images/drawer-bg.jpg')"
+          backgroundImage="url('/images/drawer-bg.webp')"
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
           backgroundSize="cover"

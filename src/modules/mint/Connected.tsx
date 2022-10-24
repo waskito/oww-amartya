@@ -38,7 +38,7 @@ export default function ConnectedSection({
           <Box
             w="866px"
             h="682px"
-            bg="url(/images/mint/bg-gate-top-big.png) no-repeat"
+            bg="url(/images/mint/bg-gate-top-big.webp) no-repeat"
             backgroundSize="cover"
             color="black"
           >

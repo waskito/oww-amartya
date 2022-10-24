@@ -108,6 +108,12 @@ export default class MyDocument extends Document {
           />
           <link
             rel="preload"
+            as="image"
+            href="/images/drawer-bg.webp"
+            key="bg_drawer"
+          />
+          <link
+            rel="preload"
             as="audio"
             href="/images/music.wav"
             key="intro_audio"
