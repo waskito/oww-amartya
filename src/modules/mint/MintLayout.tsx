@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Box, Text, Container } from "@chakra-ui/react";
+import clsx from "clsx";
 
 import { Mute, Unmute } from "components/Icons";
 
@@ -61,50 +62,54 @@ const MintLayout: React.FC<Props> = ({
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"
       >
-        {greenBackgroundStages.includes(stage) && (
+        <Box
+          pos="absolute"
+          h="100%"
+          w="100%"
+          bg="url(/images/mint/bg-mint-stage-1.png) no-repeat"
+          backgroundSize="cover"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          className={clsx({
+            isHidden: !greenBackgroundStages.includes(stage),
+          })}
+          sx={{ "&.isHidden": { display: "none !important" } }}
+        >
+          <Box
+            bg="url(/images/mint/tara-gate.png) no-repeat"
+            backgroundSize="cover"
+            h="828px"
+            w="535px"
+          />
+        </Box>
+        <Box
+          pos="absolute"
+          h="100%"
+          w="100%"
+          bg="url(/images/mint/bg-mint-stage-2.png) no-repeat"
+          backgroundSize="cover"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          className={clsx({
+            isHidden: !redBackgroundStages.includes(stage),
+          })}
+          sx={{ "&.isHidden": { display: "none !important" } }}
+        >
           <Box
             pos="absolute"
-            h="100%"
-            w="100%"
-            bg="url(/images/mint/bg-mint-stage-1.png) no-repeat"
-            backgroundSize="cover"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Box
-              bg="url(/images/mint/tara-gate.png) no-repeat"
-              backgroundSize="cover"
-              h="828px"
-              w="535px"
-            />
-          </Box>
-        )}
-        {redBackgroundStages.includes(stage) && (
-          <Box
-            pos="absolute"
-            h="100%"
-            w="100%"
-            bg="url(/images/mint/bg-mint-stage-2.png) no-repeat"
-            backgroundSize="cover"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Box
-              pos="absolute"
-              w="80%"
-              h="80%"
-              bg="#000"
-              top="20%"
-              left="20%"
-              filter="auto"
-              opacity={0.52}
-              blur="200px"
-              boxShadow="0px 0px 500px #000000"
-            />
-          </Box>
-        )}
+            w="80%"
+            h="80%"
+            bg="#000"
+            top="20%"
+            left="20%"
+            filter="auto"
+            opacity={0.52}
+            blur="200px"
+            boxShadow="0px 0px 500px #000000"
+          />
+        </Box>
         <Box zIndex={1}>{children}</Box>
       </Box>
 

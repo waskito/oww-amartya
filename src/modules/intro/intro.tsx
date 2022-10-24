@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sleep from "sleep-promise";
+import clsx from "clsx";
 import {
   Box,
   Flex,
@@ -74,21 +75,22 @@ const IntroPage: React.FC<Props> = ({ onWatchedCallback }: Props) => {
         w="100vw"
         bg="#6A5A33 url('/images/bg-body.webp') repeat-y center/cover"
       >
-        {currentHero === HEROES.IMAGE && (
-          <Box
-            pos="absolute"
-            top="0"
-            left="0"
-            className="intro-page"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            h="100vh"
-            w="100vw"
-            bg="url('/images/bg-hero-image.webp') no-repeat center/cover"
-          />
-        )}
+        <Box
+          pos="absolute"
+          top="0"
+          left="0"
+          className={clsx("intro-page", {
+            isHidden: currentHero !== HEROES.IMAGE,
+          })}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          h="100vh"
+          w="100vw"
+          bg="url('/images/bg-hero-image.webp') no-repeat center/cover"
+          sx={{ "&.isHidden": { display: "none !important" } }}
+        />
         <Flex
           id="container"
           pos="absolute"

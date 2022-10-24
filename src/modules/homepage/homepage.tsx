@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, ScaleFade, Fade, SlideFade } from "@chakra-ui/react";
+import clsx from "clsx";
 
 import NavBar from "components/section/navbar";
 import Hero from "components/section/hero";
@@ -32,6 +33,7 @@ const HomePage: React.FC<Props> = ({
   const handleKainIntro = (): void => {
     if (heroLoop) return;
     setHeroLoop(true);
+    setHeroIntro(false);
   };
 
   const handleSecondKain = (): void => {
@@ -88,9 +90,11 @@ const HomePage: React.FC<Props> = ({
               </video>
             </Box>
             <Box
-              as={Fade}
-              in={heroLoop}
-              unmountOnExit
+              // as={Fade}
+              // in={heroLoop}
+              // unmountOnExit
+              className={clsx({ isHidden: !heroLoop })}
+              sx={{ "&.isHidden": { display: "none !important" } }}
               pos="absolute"
               w="100%"
               ml="auto"
@@ -105,7 +109,7 @@ const HomePage: React.FC<Props> = ({
                 muted
                 preload="auto"
                 loop
-                onLoadedData={() => handleSecondKain()}
+                // onLoadedData={() => handleSecondKain()}
               >
                 <source src="/images/kain-loop.webm" type="video/webm" />
               </video>
