@@ -42,9 +42,9 @@ export default function OnPauseSection({
                 textStyle="PlayfairDisplayMedium"
                 textAlign="center"
                 color="black"
-                fontSize="100px"
+                fontSize="72px"
+                lineHeight="96px"
                 fontWeight={400}
-                lineHeight="133px"
               >
                 Mint on Pause
               </Text>

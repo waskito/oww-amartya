@@ -29,7 +29,7 @@ export default function SoldOutSection({
             backgroundSize="cover"
             py="70px"
             color="black"
-            onClick={() => setStage(mintStages.countdown)}
+            onClick={() => setStage(mintStages.onPause)}
           >
             <Flex
               flexDir="column"
@@ -42,9 +42,9 @@ export default function SoldOutSection({
                 textStyle="PlayfairDisplayMedium"
                 textAlign="center"
                 color="black"
-                fontSize="100px"
+                fontSize="72px"
+                lineHeight="96px"
                 fontWeight={400}
-                lineHeight="133px"
               >
                 Sold Out
               </Text>
