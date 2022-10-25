@@ -22,7 +22,7 @@ export default function GatesLoading({
   const flattened = flatten(visibleGroups);
 
   const handleSelect = (selected, isSelected) => {
-    if (isSelected) return;
+    if (isSelected || disableAnim) return;
     setVisibleGroups([...visibleGroups, triangleGroups[selected]]);
   };
 
@@ -63,10 +63,10 @@ export default function GatesLoading({
         .circleSemi {
           opacity: 0;
         }
-        .characterGroup:not(.selected) {
+        .characterGroup:not(.disabled) {
           cursor: pointer;
         }
-        .characterGroup:not(.selected):hover > .circleSemi {
+        .characterGroup:not(.disabled):hover > .circleSemi {
           opacity: 0.25;
         }
         .circle {
@@ -183,7 +183,7 @@ export default function GatesLoading({
         />
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.a),
+            disabled: includes(visibleGroups, triangleGroups.a) || disableAnim,
           })}
           onClick={() =>
             handleSelect("a", includes(visibleGroups, triangleGroups.a))
@@ -205,7 +205,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.b),
+            disabled: includes(visibleGroups, triangleGroups.b) || disableAnim,
           })}
           onClick={() =>
             handleSelect("b", includes(visibleGroups, triangleGroups.b))
@@ -228,7 +228,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.c),
+            disabled: includes(visibleGroups, triangleGroups.c) || disableAnim,
           })}
           onClick={() =>
             handleSelect("c", includes(visibleGroups, triangleGroups.c))
@@ -251,7 +251,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.a),
+            disabled: includes(visibleGroups, triangleGroups.a) || disableAnim,
           })}
           onClick={() =>
             handleSelect("a", includes(visibleGroups, triangleGroups.a))
@@ -274,7 +274,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.b),
+            disabled: includes(visibleGroups, triangleGroups.b) || disableAnim,
           })}
           onClick={() =>
             handleSelect("b", includes(visibleGroups, triangleGroups.b))
@@ -297,7 +297,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.c),
+            disabled: includes(visibleGroups, triangleGroups.c) || disableAnim,
           })}
           onClick={() =>
             handleSelect("c", includes(visibleGroups, triangleGroups.c))
@@ -320,7 +320,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.a),
+            disabled: includes(visibleGroups, triangleGroups.a) || disableAnim,
           })}
           onClick={() =>
             handleSelect("a", includes(visibleGroups, triangleGroups.a))
@@ -343,7 +343,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.b),
+            disabled: includes(visibleGroups, triangleGroups.b) || disableAnim,
           })}
           onClick={() =>
             handleSelect("b", includes(visibleGroups, triangleGroups.b))
@@ -366,7 +366,7 @@ export default function GatesLoading({
         </g>
         <g
           className={clsx("characterGroup", {
-            selected: includes(visibleGroups, triangleGroups.c),
+            disabled: includes(visibleGroups, triangleGroups.c) || disableAnim,
           })}
           onClick={() =>
             handleSelect("c", includes(visibleGroups, triangleGroups.c))
