@@ -43,9 +43,10 @@ export default function Mint({
   }, []);
 
   const goToMint = useCallback(async () => {
+    if (currentState !== mintingStages.video) return;
     await sleep(5 * 1000);
     setCurrentState(mintingStages.mint);
-  }, []);
+  }, [currentState]);
 
   useEffect(() => {
     if (currentState === mintingStages.video) {
