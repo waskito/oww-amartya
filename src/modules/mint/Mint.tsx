@@ -140,7 +140,6 @@ export default function Mint({
               alignItems="center"
               h="90%"
               justifyContent="center"
-              onClick={() => setCurrentState(mintingStages.mint)}
             >
               <Text
                 textStyle="DidactGothic"
