@@ -25,6 +25,7 @@ interface Props {
   handleMute: () => void;
   children: React.ReactNode;
   stage: string;
+  isVideo?: boolean;
 }
 
 const MintLayout: React.FC<Props> = ({
@@ -32,10 +33,11 @@ const MintLayout: React.FC<Props> = ({
   handleMute,
   children,
   stage,
+  isVideo = false,
 }: Props) => {
   return (
     <Box>
-      <NavbarMint isMuted={isMuted} handleMute={handleMute} />
+      {!isVideo && <NavbarMint isMuted={isMuted} handleMute={handleMute} />}
 
       <Box
         mx="auto"
@@ -100,25 +102,27 @@ const MintLayout: React.FC<Props> = ({
         <Box zIndex={1}>{children}</Box>
       </Box>
 
-      <Button
-        bg="transparant"
-        borderRadius="100%"
-        zIndex={1}
-        h="auto"
-        w="auto"
-        pos="fixed"
-        bottom={"10px"}
-        right={"10px"}
-        onClick={handleMute}
-        p="15px"
-        _focus={{ boxShadow: "transparant" }}
-      >
-        {!isMuted ? (
-          <Mute sx={{ width: "100px", height: "100px", color: "black" }} />
-        ) : (
-          <Unmute sx={{ width: "100px", height: "100px", color: "black" }} />
-        )}
-      </Button>
+      {!isVideo && (
+        <Button
+          bg="transparant"
+          borderRadius="100%"
+          zIndex={1}
+          h="auto"
+          w="auto"
+          pos="fixed"
+          bottom={"10px"}
+          right={"10px"}
+          onClick={handleMute}
+          p="15px"
+          _focus={{ boxShadow: "transparant" }}
+        >
+          {!isMuted ? (
+            <Mute sx={{ width: "100px", height: "100px", color: "black" }} />
+          ) : (
+            <Unmute sx={{ width: "100px", height: "100px", color: "black" }} />
+          )}
+        </Button>
+      )}
     </Box>
   );
 };

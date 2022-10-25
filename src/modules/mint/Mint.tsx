@@ -1,16 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
 import { Text, Container, Flex, Box, Button, Fade } from "@chakra-ui/react";
 import clsx from "clsx";
+import videojs from "video.js";
+import VREPlayer from "videojs-react-enhanced";
 
 import { mintingStages, mintStages } from "./constants";
 
 import MintLayout from "./MintLayout";
 import Gates from "./SVG/Gates";
 import GatesLoading from "./SVG/GatesLoading";
-import { Minus, Plus } from "components/Icons";
+import { Minus, MoreRight, Plus } from "components/Icons";
 import sleep from "sleep-promise";
 
-const groupMinting = [mintingStages.mint, mintingStages.inProcess];
+const TRANSITION = "transition";
+const groupMinting = [TRANSITION, mintingStages.mint, mintingStages.inProcess];
 
 const CURRENCY = "ETH";
 const PRICE = 0.5;
@@ -25,6 +28,16 @@ export default function Mint({
     mintingStages.connectAllGate
   );
   const [value, setValue] = useState(3);
+
+  const options: VREPlayer.IPlayerOptions = {
+    src: "https://user-images.githubusercontent.com/4341116/194508188-9af74b13-0c8b-40b9-b941-ded924510acc.mp4",
+    controls: false,
+    autoplay: "play",
+  };
+
+  const videojsOptions = {
+    fluid: false,
+  };
 
   const handleMinus = (current) => {
     if (current <= 1) return;
@@ -42,15 +55,16 @@ export default function Mint({
     setStage(mintStages.minted);
   }, []);
 
-  const goToMint = useCallback(async () => {
+  const onWatchedCallback = useCallback(async () => {
     if (currentState !== mintingStages.video) return;
-    await sleep(5 * 1000);
+    setCurrentState(TRANSITION);
+    await sleep(1 * 1000);
     setCurrentState(mintingStages.mint);
   }, [currentState]);
 
   useEffect(() => {
     if (currentState === mintingStages.video) {
-      goToMint();
+      if (!isMuted) handleMute();
     }
     if (currentState === mintingStages.inProcess) {
       handleSuccess(value);
@@ -62,6 +76,7 @@ export default function Mint({
       handleMute={handleMute}
       isMuted={isMuted}
       stage={mintStages.mint}
+      isVideo={currentState === mintingStages.video}
     >
       <Container w="100%" maxW="1440px">
         <Flex
@@ -134,26 +149,43 @@ export default function Mint({
               <GatesLoading disableAnim />
             </Box>
           </Fade>
-          {currentState === mintingStages.video && (
-            <Flex
-              flexDir="column"
-              alignItems="center"
-              h="90%"
-              justifyContent="center"
+          <Box
+            as={Fade}
+            in={currentState === mintingStages.video}
+            unmountOnExit
+            zIndex={99999}
+            sx={{
+              ".video-js": {
+                width: "100vw",
+                height: "100vh",
+              },
+              ".video-js .vjs-tech": {
+                objectFit: "cover",
+              },
+            }}
+          >
+            <VREPlayer
+              playerOptions={options}
+              videojsOptions={videojsOptions}
+              //   onReady={(player) => console.log(player)}
+              //   onPlay={(e, _, second) => console.log("Play!")}
+              //   onPause={(e, _, second) => console.log("Pause!")}
+              onEnded={(e, _) => onWatchedCallback()}
+            />
+            <Button
+              bg="transparant"
+              borderRadius="100%"
+              zIndex={1}
+              h={140}
+              w={140}
+              pos="fixed"
+              bottom={50}
+              right={50}
+              onClick={() => onWatchedCallback()}
             >
-              <Text
-                textStyle="DidactGothic"
-                textAlign="center"
-                fontSize="400px"
-                fontWeight="400"
-                lineHeight="363px"
-                color="white"
-                pos="relative"
-              >
-                VIDEO
-              </Text>
-            </Flex>
-          )}
+              <MoreRight sx={{ height: "32px", width: "32px" }} />
+            </Button>
+          </Box>
           <Box
             as={Fade}
             in={groupMinting.includes(currentState)}
