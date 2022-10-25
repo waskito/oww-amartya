@@ -13,6 +13,7 @@ export const mintStages = {
 export const mintingStages = {
   connectAllGate: "connectAllGate",
   allGateLoading: "allGateLoading",
+  video: "video",
   mint: "mint",
   inProcess: "inProcess",
 };

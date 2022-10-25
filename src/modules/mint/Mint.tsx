@@ -102,9 +102,11 @@ export default function Mint({
           justifyContent="center"
           alignItems="center"
           className={clsx({
-            isHidden: ![...groupMinting, mintingStages.allGateLoading].includes(
-              currentState
-            ),
+            isHidden: ![
+              ...groupMinting,
+              mintingStages.allGateLoading,
+              mintingStages.video,
+            ].includes(currentState),
           })}
           sx={{ "&.isHidden": { display: "none !important" } }}
         >
@@ -114,15 +116,36 @@ export default function Mint({
           >
             <Box w="754px" h="746px" pos="absolute" top="0" left="0">
               <GatesLoading
-                onAnimationFinished={() => setCurrentState(mintingStages.mint)}
+                onAnimationFinished={() => setCurrentState(mintingStages.video)}
               />
             </Box>
           </Fade>
           <Fade in={groupMinting.includes(currentState)} unmountOnExit>
             <Box w="754px" h="746px" pos="absolute" top="0" left="0">
-              <GatesLoading withoutGreenPath />
+              <GatesLoading disableAnim />
             </Box>
           </Fade>
+          {currentState === mintingStages.video && (
+            <Flex
+              flexDir="column"
+              alignItems="center"
+              h="90%"
+              justifyContent="center"
+              onClick={() => setCurrentState(mintingStages.mint)}
+            >
+              <Text
+                textStyle="DidactGothic"
+                textAlign="center"
+                fontSize="400px"
+                fontWeight="400"
+                lineHeight="363px"
+                color="white"
+                pos="relative"
+              >
+                VIDEO
+              </Text>
+            </Flex>
+          )}
           <Box
             as={Fade}
             in={groupMinting.includes(currentState)}

@@ -5,12 +5,12 @@ import sleep from "sleep-promise";
 
 interface Props {
   onAnimationFinished?: () => void;
-  withoutGreenPath?: boolean;
+  disableAnim?: boolean;
 }
 
 export default function GatesLoading({
   onAnimationFinished,
-  withoutGreenPath = false,
+  disableAnim = false,
 }: Props): React.ReactElement {
   const greenPath = useRef();
 
@@ -38,14 +38,13 @@ export default function GatesLoading({
             stroke-dashoffset: 0;
           }
         }
-        .greenPath {
-          stroke-dasharray: 4599.75537109375;
-          stroke-dashoffset: 4599.75537109375;
-          animation: dash 9s linear forwards;
+        .yellowPath {
+          opacity: 0;
+          animation: fadeIn 1s linear forwards;
         }
         .circle {
           opacity: 0;
-          animation: fadeIn 0.6s linear forwards;
+          animation: fadeIn 1s linear forwards;
         }
       `}</style>
       <svg
@@ -70,38 +69,38 @@ export default function GatesLoading({
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c1", { circle: !withoutGreenPath })}
+          className={clsx("c1", { circle: !disableAnim })}
         />
         <path
           d="M605.801 421.699C704.936 421.699 785.301 341.379 785.301 242.299C785.301 143.22 704.936 62.8994 605.801 62.8994C506.666 62.8994 426.301 143.22 426.301 242.299C426.301 341.379 506.666 421.699 605.801 421.699Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c2", { circle: !withoutGreenPath })}
-          style={{ animationDelay: `${7}s` }}
+          className={clsx("c2", { circle: !disableAnim })}
+          style={{ animationDelay: `${1}s` }}
         />
         <path
           d="M874.595 397.804C874.976 298.724 794.964 218.095 695.884 217.715C596.805 217.334 516.176 297.345 515.795 396.425C515.414 495.505 595.426 576.134 694.505 576.515C793.585 576.895 874.214 496.884 874.595 397.804Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c3", { circle: !withoutGreenPath })}
-          style={{ animationDelay: `${5}s` }}
+          className={clsx("c3", { circle: !disableAnim })}
+          style={{ animationDelay: `${2}s` }}
         />
         <path
           d="M664.406 752.601C763.485 752.49 843.716 672.081 843.606 573.001C843.495 473.921 763.085 393.69 664.005 393.801C564.925 393.911 484.695 474.321 484.806 573.401C484.916 672.481 565.326 752.711 664.406 752.601Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c4", { circle: !withoutGreenPath })}
-          style={{ animationDelay: `${3}s` }}
+          className={clsx("c4", { circle: !disableAnim })}
+          // style={{ animationDelay: `${3}s` }}
         />
         <path
           d="M527.665 867.506C626.745 867.255 706.862 786.731 706.61 687.651C706.359 588.572 625.835 508.455 526.755 508.706C427.675 508.957 347.559 589.481 347.81 688.561C348.062 787.641 428.585 867.757 527.665 867.506Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c5", { circle: !withoutGreenPath })}
+          className={clsx("c5", { circle: !disableAnim })}
           style={{ animationDelay: `${1}s` }}
         />
         <path
@@ -109,31 +108,31 @@ export default function GatesLoading({
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c6", { circle: !withoutGreenPath })}
-          style={{ animationDelay: `${8}s` }}
+          className={clsx("c6", { circle: !disableAnim })}
+          style={{ animationDelay: `${2}s` }}
         />
         <path
           d="M390.834 573.551C391.006 474.471 310.825 394.011 211.745 393.839C112.665 393.667 32.2059 473.848 32.0339 572.928C31.862 672.008 112.043 752.467 211.123 752.639C310.203 752.811 390.662 672.63 390.834 573.551Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c7", { circle: !withoutGreenPath })}
-          style={{ animationDelay: `${6}s` }}
+          className={clsx("c7", { circle: !disableAnim })}
+          // style={{ animationDelay: `${6}s` }}
         />
         <path
           d="M180.4 576.5C279.48 576.5 359.8 496.18 359.8 397.1C359.8 298.02 279.48 217.7 180.4 217.7C81.3203 217.7 1 298.02 1 397.1C1 496.18 81.3203 576.5 180.4 576.5Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c8", { circle: !withoutGreenPath })}
-          style={{ animationDelay: `${4}s` }}
+          className={clsx("c8", { circle: !disableAnim })}
+          style={{ animationDelay: `${1}s` }}
         />
         <path
           d="M449.058 250.653C453.634 151.682 377.067 67.7386 278.041 63.1602C179.015 58.5818 95.0291 135.102 90.4533 234.073C85.8774 333.044 162.444 416.987 261.471 421.565C360.497 426.144 444.483 349.624 449.058 250.653Z"
           stroke="#F2F2F2"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          className={clsx("c9", { circle: !withoutGreenPath })}
+          className={clsx("c9", { circle: !disableAnim })}
           style={{ animationDelay: `${2}s` }}
         />
         <path
@@ -274,17 +273,30 @@ export default function GatesLoading({
           d="M437.802 403.5L441.902 416.1C443.102 419.8 447.502 421.4 450.802 419.3L462.002 412.3L457.002 424.5C455.502 428.1 457.902 432.2 461.702 432.7L474.802 434.5L463.102 440.7C459.602 442.5 458.802 447.1 461.502 450L470.402 459.8L457.502 457C453.702 456.2 450.102 459.2 450.202 463.1L450.702 476.3L442.602 465.9C440.202 462.8 435.502 462.8 433.102 465.9L425.002 476.3L425.502 463.1C425.602 459.2 422.102 456.2 418.202 457L405.302 459.8L414.202 450C416.802 447.1 416.002 442.5 412.602 440.7L400.902 434.5L414.002 432.7C417.902 432.2 420.202 428.1 418.702 424.5L413.702 412.3L424.902 419.3C428.202 421.4 432.602 419.8 433.802 416.1L437.802 403.5Z"
           fill="white"
         />
-        {!withoutGreenPath && (
-          <path
-            ref={greenPath}
-            d="M437.801 182.399L526.501 686.199L271.101 243.699L662.501 572.099L182.301 397.399H693.301L213.101 572.099L604.501 243.699L349.101 686.199L437.801 182.399Z"
-            stroke="#66B32E"
-            strokeMiterlimit="10"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="greenPath"
-            onAnimationEnd={handleFinish}
-          />
+        {!disableAnim && (
+          <>
+            <path
+              d="M664 573L437 180L210 573H664Z"
+              stroke="#FFB84F"
+              strokeWidth="3"
+              className="yellowPath"
+            />
+            <path
+              d="M526.044 688.029L604.768 241.061L178.26 396.204L526.044 688.029Z"
+              stroke="#FFB84F"
+              strokeWidth="3"
+              className="yellowPath"
+              style={{ animationDelay: `${1}s` }}
+            />
+            <path
+              d="M346.423 687.471L694.035 395.676L267.587 240.369L346.423 687.471Z"
+              stroke="#FFB84F"
+              strokeWidth="3"
+              className="yellowPath"
+              onAnimationEnd={handleFinish}
+              style={{ animationDelay: `${2}s` }}
+            />
+          </>
         )}
       </svg>
     </>
