@@ -18,16 +18,18 @@ export default function GatesLoading({
   onAnimationFinished,
   disableAnim = false,
 }: Props): React.ReactElement {
+  const [startingPoints, setStartingPoints] = useState([]);
   const [visibleGroups, setVisibleGroups] = useState([]);
   const flattened = flatten(visibleGroups);
 
-  const handleSelect = (selected, isSelected) => {
+  const handleSelect = (selected, start, isSelected) => {
     if (isSelected || disableAnim) return;
+    setStartingPoints([...startingPoints, start]);
     setVisibleGroups([...visibleGroups, triangleGroups[selected]]);
   };
 
   const handleFinish = useCallback(async () => {
-    await sleep(1 * 1000);
+    await sleep(4 * 1000);
     if (isFunction(onAnimationFinished)) onAnimationFinished();
   }, [onAnimationFinished]);
 
@@ -48,17 +50,20 @@ export default function GatesLoading({
         }
         @keyframes dash {
           from {
-            stroke-dashoffset: 4599.75537109375;
+            stroke-dashoffset: 1361.696044921875;
           }
           to {
             stroke-dashoffset: 0;
           }
         }
         .yellowPath {
-          opacity: 0;
+          stroke-dasharray: 1361.696044921875;
+          stroke-dashoffset: 1361.696044921875;
+          // opacity: 0;
         }
         .yellowPath.visible {
-          animation: fadeIn 1s linear forwards;
+          // animation: fadeIn 1s linear forwards;
+          animation: dash 3s linear forwards;
         }
         .circleSemi {
           opacity: 0;
@@ -104,6 +109,12 @@ export default function GatesLoading({
           className={clsx("circle c1", {
             visible: includes(flattened, 1) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(7),
+              "2s": startingPoints.includes(4),
+            }),
+          }}
         />
         <path
           d="M605.801 421.698C704.936 421.698 785.301 341.378 785.301 242.298C785.301 143.219 704.936 62.8984 605.801 62.8984C506.666 62.8984 426.301 143.219 426.301 242.298C426.301 341.378 506.666 421.698 605.801 421.698Z"
@@ -113,6 +124,12 @@ export default function GatesLoading({
           className={clsx("circle c2", {
             visible: includes(flattened, 2) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(8),
+              "2s": startingPoints.includes(5),
+            }),
+          }}
         />
 
         <path
@@ -123,6 +140,12 @@ export default function GatesLoading({
           className={clsx("circle c3", {
             visible: includes(flattened, 3) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(9),
+              "2s": startingPoints.includes(6),
+            }),
+          }}
         />
         <path
           d="M664.406 752.6C763.485 752.489 843.716 672.08 843.606 573C843.495 473.92 763.085 393.689 664.005 393.8C564.925 393.91 484.695 474.32 484.806 573.4C484.916 672.48 565.326 752.71 664.406 752.6Z"
@@ -132,6 +155,12 @@ export default function GatesLoading({
           className={clsx("circle c4", {
             visible: includes(flattened, 4) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(1),
+              "2s": startingPoints.includes(7),
+            }),
+          }}
         />
         <path
           d="M527.665 867.505C626.745 867.254 706.862 786.73 706.61 687.65C706.359 588.571 625.835 508.454 526.755 508.705C427.675 508.957 347.559 589.48 347.81 688.56C348.062 787.64 428.585 867.756 527.665 867.505Z"
@@ -141,6 +170,12 @@ export default function GatesLoading({
           className={clsx("circle c5", {
             visible: includes(flattened, 5) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(2),
+              "2s": startingPoints.includes(8),
+            }),
+          }}
         />
         <path
           d="M527.77 688.374C527.902 589.294 447.689 508.866 348.609 508.734C249.529 508.602 169.102 588.815 168.97 687.895C168.838 786.975 249.051 867.402 348.13 867.534C447.21 867.667 527.638 787.453 527.77 688.374Z"
@@ -150,6 +185,12 @@ export default function GatesLoading({
           className={clsx("circle c6", {
             visible: includes(flattened, 6) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(3),
+              "2s": startingPoints.includes(9),
+            }),
+          }}
         />
         <path
           d="M390.834 573.551C391.006 474.471 310.825 394.011 211.745 393.839C112.665 393.667 32.2059 473.848 32.0339 572.928C31.862 672.008 112.043 752.467 211.123 752.639C310.203 752.811 390.662 672.63 390.834 573.551Z"
@@ -159,6 +200,12 @@ export default function GatesLoading({
           className={clsx("circle c7", {
             visible: includes(flattened, 7) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(4),
+              "2s": startingPoints.includes(1),
+            }),
+          }}
         />
         <path
           d="M180.4 576.499C279.48 576.499 359.8 496.179 359.8 397.099C359.8 298.019 279.48 217.699 180.4 217.699C81.3203 217.699 1 298.019 1 397.099C1 496.179 81.3203 576.499 180.4 576.499Z"
@@ -168,6 +215,12 @@ export default function GatesLoading({
           className={clsx("circle c8", {
             visible: includes(flattened, 8) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(5),
+              "2s": startingPoints.includes(2),
+            }),
+          }}
         />
         <path
           d="M449.058 250.653C453.634 151.682 377.067 67.7386 278.041 63.1602C179.015 58.5818 95.0291 135.102 90.4533 234.073C85.8774 333.044 162.444 416.987 261.471 421.565C360.497 426.144 444.483 349.624 449.058 250.653Z"
@@ -177,6 +230,12 @@ export default function GatesLoading({
           className={clsx("circle c9", {
             visible: includes(flattened, 9) || disableAnim,
           })}
+          style={{
+            animationDelay: clsx({
+              "1s": startingPoints.includes(6),
+              "2s": startingPoints.includes(3),
+            }),
+          }}
         />
         <path
           d="M664.4 573.1L528.6 488.2C517.7 481.4 512 468.6 514.3 456L514.4 455.6C516.6 442.9 526.3 432.9 538.9 430.2L695.5 396.8L537.4 419C524.7 420.8 512.1 414.7 505.7 403.5L505.3 402.8C498.9 391.7 499.8 377.7 507.8 367.6L606.1 241.7L499.4 360.1C490.8 369.7 477.2 373 465.2 368.6L464.3 368.3C452.2 363.9 444 352.6 443.6 339.8L438 180.5L432.4 339.8C431.9 352.7 423.7 363.9 411.7 368.3L410.8 368.6C398.7 373 385.2 369.6 376.6 360.1L269.9 241.7L368.2 367.6C376.1 377.7 377.1 391.7 370.7 402.8L370.3 403.5C363.9 414.6 351.3 420.8 338.6 419L180.5 396.8L337.1 430.2C349.7 432.9 359.4 442.9 361.6 455.6L361.7 456C363.9 468.7 358.3 481.4 347.4 488.2L211.6 573.1L353.4 497.8C364.8 491.8 378.6 493.2 388.5 501.5L388.6 501.6C398.5 509.9 402.3 523.3 398.3 535.5L348.7 688.2L409 539.2C413.8 527.3 425.4 519.5 438.3 519.5C451.2 519.5 462.7 527.3 467.6 539.2L527.9 688.2L478.3 535.5C474.3 523.3 478.2 509.9 488 501.6L488.1 501.5C498 493.2 511.8 491.8 523.2 497.8L664.4 573.1Z"
@@ -187,7 +246,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.a) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("a", includes(visibleGroups, triangleGroups.a))
+            handleSelect("a", 1, includes(visibleGroups, triangleGroups.a))
           }
         >
           <circle
@@ -209,7 +268,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.b) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("b", includes(visibleGroups, triangleGroups.b))
+            handleSelect("b", 2, includes(visibleGroups, triangleGroups.b))
           }
         >
           <circle
@@ -232,7 +291,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.c) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("c", includes(visibleGroups, triangleGroups.c))
+            handleSelect("c", 3, includes(visibleGroups, triangleGroups.c))
           }
         >
           <circle
@@ -255,7 +314,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.a) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("a", includes(visibleGroups, triangleGroups.a))
+            handleSelect("a", 4, includes(visibleGroups, triangleGroups.a))
           }
         >
           <circle
@@ -278,7 +337,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.b) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("b", includes(visibleGroups, triangleGroups.b))
+            handleSelect("b", 5, includes(visibleGroups, triangleGroups.b))
           }
         >
           <circle
@@ -301,7 +360,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.c) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("c", includes(visibleGroups, triangleGroups.c))
+            handleSelect("c", 6, includes(visibleGroups, triangleGroups.c))
           }
         >
           <circle
@@ -324,7 +383,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.a) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("a", includes(visibleGroups, triangleGroups.a))
+            handleSelect("a", 7, includes(visibleGroups, triangleGroups.a))
           }
         >
           <circle
@@ -347,7 +406,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.b) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("b", includes(visibleGroups, triangleGroups.b))
+            handleSelect("b", 8, includes(visibleGroups, triangleGroups.b))
           }
         >
           <circle
@@ -370,7 +429,7 @@ export default function GatesLoading({
             disabled: includes(visibleGroups, triangleGroups.c) || disableAnim,
           })}
           onClick={() =>
-            handleSelect("c", includes(visibleGroups, triangleGroups.c))
+            handleSelect("c", 9, includes(visibleGroups, triangleGroups.c))
           }
         >
           <circle
@@ -389,27 +448,93 @@ export default function GatesLoading({
           />
         </g>
         <path
-          d="M665 574L438 181L211 574H665Z"
+          d="M437.5 179L664.348 572.088L210.5 572.175L437.5 179Z"
           stroke="#FFB84F"
           strokeWidth="3"
-          className={clsx("yellowPath", {
-            visible: includes(visibleGroups, triangleGroups.a),
+          className={clsx("yellowPath y1", {
+            visible:
+              includes(visibleGroups, triangleGroups.a) &&
+              startingPoints.includes(1),
           })}
         />
         <path
-          d="M527.044 689.029L605.768 242.061L179.26 397.204L527.044 689.029Z"
+          d="M664.348 572.176L210.5 572.088L437.348 179L664.348 572.176Z"
           stroke="#FFB84F"
           strokeWidth="3"
-          className={clsx("yellowPath", {
-            visible: includes(visibleGroups, triangleGroups.b),
+          className={clsx("yellowPath y4", {
+            visible:
+              includes(visibleGroups, triangleGroups.a) &&
+              startingPoints.includes(4),
           })}
         />
         <path
-          d="M347.423 688.471L695.035 396.676L268.587 241.369L347.423 688.471Z"
+          d="M211 572L438 179L665 572H211Z"
           stroke="#FFB84F"
           strokeWidth="3"
-          className={clsx("yellowPath", {
-            visible: includes(visibleGroups, triangleGroups.c),
+          className={clsx("yellowPath y7", {
+            visible:
+              includes(visibleGroups, triangleGroups.a) &&
+              startingPoints.includes(7),
+          })}
+        />
+        <path
+          d="M605.62 240L526.724 686.938L179 395.277L605.62 240Z"
+          stroke="#FFB84F"
+          strokeWidth="3"
+          className={clsx("yellowPath y2", {
+            visible:
+              includes(visibleGroups, triangleGroups.b) &&
+              startingPoints.includes(2),
+          })}
+        />
+        <path
+          d="M527.029 686.346L179.418 394.551L605.865 239.244L527.029 686.346Z"
+          stroke="#FFB84F"
+          strokeWidth="3"
+          className={clsx("yellowPath y5", {
+            visible:
+              includes(visibleGroups, triangleGroups.b) &&
+              startingPoints.includes(5),
+          })}
+        />
+        <path
+          d="M179 395.055L605.508 239.913L526.784 686.881L179 395.055Z"
+          stroke="#FFB84F"
+          strokeWidth="3"
+          className={clsx("yellowPath y8", {
+            visible:
+              includes(visibleGroups, triangleGroups.b) &&
+              startingPoints.includes(8),
+          })}
+        />
+        <path
+          d="M694.035 395.277L346.31 686.938L267.414 240L694.035 395.277Z"
+          stroke="#FFB84F"
+          strokeWidth="3"
+          className={clsx("yellowPath y3", {
+            visible:
+              includes(visibleGroups, triangleGroups.c) &&
+              startingPoints.includes(3),
+          })}
+        />
+        <path
+          d="M346.616 686.881L267.892 239.913L694.4 395.055L346.616 686.881Z"
+          stroke="#FFB84F"
+          strokeWidth="3"
+          className={clsx("yellowPath y6", {
+            visible:
+              includes(visibleGroups, triangleGroups.c) &&
+              startingPoints.includes(6),
+          })}
+        />
+        <path
+          d="M268 240.244L694.448 395.551L346.836 687.346L268 240.244Z"
+          stroke="#FFB84F"
+          strokeWidth="3"
+          className={clsx("yellowPath y9", {
+            visible:
+              includes(visibleGroups, triangleGroups.c) &&
+              startingPoints.includes(9),
           })}
         />
         <path
