@@ -29,7 +29,7 @@ export default function GatesLoading({
   };
 
   const handleFinish = useCallback(async () => {
-    await sleep(5 * 1000);
+    await sleep(3 * 1000);
     if (isFunction(onAnimationFinished)) onAnimationFinished();
   }, [onAnimationFinished]);
 
@@ -62,8 +62,8 @@ export default function GatesLoading({
           // opacity: 0;
         }
         .yellowPath.visible {
-          // animation: fadeIn 1s linear forwards;
-          animation: dash 3s linear forwards;
+          // animation: fadeIn 0.6s linear forwards;
+          animation: dash 1.8s linear forwards;
         }
         .circleSemi {
           opacity: 0;
@@ -78,7 +78,7 @@ export default function GatesLoading({
           opacity: 0;
         }
         .circle.visible {
-          animation: fadeIn 1s linear forwards;
+          animation: fadeIn 0.6s linear forwards;
         }
       `}</style>
       <svg
@@ -111,8 +111,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(7),
-              "2s": startingPoints.includes(4),
+              "0.6s": startingPoints.includes(7),
+              "1.2s": startingPoints.includes(4),
             }),
           }}
         />
@@ -126,8 +126,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(8),
-              "2s": startingPoints.includes(5),
+              "0.6s": startingPoints.includes(8),
+              "1.2s": startingPoints.includes(5),
             }),
           }}
         />
@@ -142,8 +142,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(9),
-              "2s": startingPoints.includes(6),
+              "0.6s": startingPoints.includes(9),
+              "1.2s": startingPoints.includes(6),
             }),
           }}
         />
@@ -157,8 +157,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(1),
-              "2s": startingPoints.includes(7),
+              "0.6s": startingPoints.includes(1),
+              "1.2s": startingPoints.includes(7),
             }),
           }}
         />
@@ -172,8 +172,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(2),
-              "2s": startingPoints.includes(8),
+              "0.6s": startingPoints.includes(2),
+              "1.2s": startingPoints.includes(8),
             }),
           }}
         />
@@ -187,8 +187,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(3),
-              "2s": startingPoints.includes(9),
+              "0.6s": startingPoints.includes(3),
+              "1.2s": startingPoints.includes(9),
             }),
           }}
         />
@@ -202,8 +202,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(4),
-              "2s": startingPoints.includes(1),
+              "0.6s": startingPoints.includes(4),
+              "1.2s": startingPoints.includes(1),
             }),
           }}
         />
@@ -217,8 +217,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(5),
-              "2s": startingPoints.includes(2),
+              "0.6s": startingPoints.includes(5),
+              "1.2s": startingPoints.includes(2),
             }),
           }}
         />
@@ -232,8 +232,8 @@ export default function GatesLoading({
           })}
           style={{
             animationDelay: clsx({
-              "1s": startingPoints.includes(6),
-              "2s": startingPoints.includes(3),
+              "0.6s": startingPoints.includes(6),
+              "1.2s": startingPoints.includes(3),
             }),
           }}
         />
