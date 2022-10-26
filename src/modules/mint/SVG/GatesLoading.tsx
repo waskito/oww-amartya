@@ -82,6 +82,7 @@ export default function GatesLoading({
         viewBox="0 0 876 868"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className={clsx("gate", { loading: !disableAnim })}
       >
         <path
           d="M259.002 655.6L437.802 720.7L616.602 655.6L711.702 490.8L678.702 303.4L532.902 181.1H342.702L196.902 303.4L163.902 490.8L259.002 655.6Z"
