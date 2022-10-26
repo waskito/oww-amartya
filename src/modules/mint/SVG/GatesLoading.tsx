@@ -29,7 +29,7 @@ export default function GatesLoading({
   };
 
   const handleFinish = useCallback(async () => {
-    await sleep(4 * 1000);
+    await sleep(5 * 1000);
     if (isFunction(onAnimationFinished)) onAnimationFinished();
   }, [onAnimationFinished]);
 
