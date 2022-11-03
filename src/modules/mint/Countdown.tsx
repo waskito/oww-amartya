@@ -24,7 +24,7 @@ export default function CountdownSection({
       isMuted={isMuted}
       stage={mintStages.countdown}
     >
-      <Container w="100%" maxW="1440px">
+      <Container w="100%" maxW="1440px" overflowY="hidden">
         <Flex
           flexDir="column"
           gap="51px"

@@ -36,7 +36,7 @@ const MintLayout: React.FC<Props> = ({
   isVideo = false,
 }: Props) => {
   return (
-    <Box>
+    <Box overflowY="hidden">
       {!isVideo && <NavbarMint isMuted={isMuted} handleMute={handleMute} />}
 
       <Box
@@ -50,12 +50,14 @@ const MintLayout: React.FC<Props> = ({
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"
+        overflowY="hidden"
       >
         <Box
           pos="absolute"
           h="100%"
           w="100%"
           bg="url(/images/mint/bg-mint-stage-1.webp) no-repeat"
+          backgroundAttachment="fixed"
           backgroundSize="cover"
           display="flex"
           justifyContent="center"
@@ -77,6 +79,7 @@ const MintLayout: React.FC<Props> = ({
           h="100%"
           w="100%"
           bg="url(/images/mint/bg-mint-stage-2.webp) no-repeat"
+          backgroundAttachment="fixed"
           backgroundSize="cover"
           display="flex"
           justifyContent="center"
@@ -99,7 +102,9 @@ const MintLayout: React.FC<Props> = ({
             boxShadow="0px 0px 500px #000000"
           />
         </Box>
-        <Box zIndex={1}>{children}</Box>
+        <Box zIndex={1} overflowY="hidden">
+          {children}
+        </Box>
       </Box>
 
       {!isVideo && (
