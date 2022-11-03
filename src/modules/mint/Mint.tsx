@@ -54,14 +54,15 @@ export default function Mint({
   const handleSuccess = useCallback(async (total) => {
     setTotal(total);
     await sleep(5 * 1000);
-    setStage(mintStages.minted);
+    setCurrentState(TRANSITION);
+    await sleep(1 * 1000);
+    setCurrentState(mintingStages.video);
   }, []);
 
   const onWatchedCallback = useCallback(async () => {
-    if (currentState !== mintingStages.video) return;
     setCurrentState(TRANSITION);
     await sleep(1 * 1000);
-    setCurrentState(mintingStages.mint);
+    setStage(mintStages.minted);
   }, [currentState]);
 
   useEffect(() => {
@@ -166,7 +167,7 @@ export default function Mint({
               left={{ base: "calc(50% - 347px)", xl: "0" }}
             >
               <GatesLoading
-                onAnimationFinished={() => setCurrentState(mintingStages.video)}
+                onAnimationFinished={() => setCurrentState(mintingStages.mint)}
                 onSelectCallback={handleSelectPoint}
               />
             </Box>

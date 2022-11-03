@@ -68,6 +68,10 @@ export default function GatesLoading({
           stroke-dashoffset: 1361.696044921875;
           // opacity: 0;
         }
+        .yellowPath.forced {
+          stroke-dasharray: 0;
+          stroke-dashoffset: 0;
+        }
         .yellowPath.visible {
           // animation: fadeIn 0.6s linear forwards;
           animation: dash 1.8s linear forwards;
@@ -112,6 +116,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c1", {
+            forced: disableAnim,
             visible: includes(flattened, 1) || disableAnim,
           })}
           style={{
@@ -127,6 +132,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c2", {
+            forced: disableAnim,
             visible: includes(flattened, 2) || disableAnim,
           })}
           style={{
@@ -143,6 +149,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c3", {
+            forced: disableAnim,
             visible: includes(flattened, 3) || disableAnim,
           })}
           style={{
@@ -158,6 +165,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c4", {
+            forced: disableAnim,
             visible: includes(flattened, 4) || disableAnim,
           })}
           style={{
@@ -173,6 +181,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c5", {
+            forced: disableAnim,
             visible: includes(flattened, 5) || disableAnim,
           })}
           style={{
@@ -188,6 +197,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c6", {
+            forced: disableAnim,
             visible: includes(flattened, 6) || disableAnim,
           })}
           style={{
@@ -203,6 +213,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c7", {
+            forced: disableAnim,
             visible: includes(flattened, 7) || disableAnim,
           })}
           style={{
@@ -218,6 +229,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c8", {
+            forced: disableAnim,
             visible: includes(flattened, 8) || disableAnim,
           })}
           style={{
@@ -233,6 +245,7 @@ export default function GatesLoading({
           strokeWidth="0.5"
           strokeMiterlimit="10"
           className={clsx("circle c9", {
+            forced: disableAnim,
             visible: includes(flattened, 9) || disableAnim,
           })}
           style={{
@@ -457,6 +470,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y1", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.a) &&
               startingPoints.includes(1),
@@ -467,6 +481,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y4", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.a) &&
               startingPoints.includes(4),
@@ -477,6 +492,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y7", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.a) &&
               startingPoints.includes(7),
@@ -487,6 +503,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y2", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.b) &&
               startingPoints.includes(2),
@@ -497,6 +514,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y5", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.b) &&
               startingPoints.includes(5),
@@ -507,6 +525,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y8", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.b) &&
               startingPoints.includes(8),
@@ -517,6 +536,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y3", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.c) &&
               startingPoints.includes(3),
@@ -527,6 +547,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y6", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.c) &&
               startingPoints.includes(6),
@@ -537,6 +558,7 @@ export default function GatesLoading({
           stroke="#FFB84F"
           strokeWidth="3"
           className={clsx("yellowPath y9", {
+            forced: disableAnim,
             visible:
               includes(visibleGroups, triangleGroups.c) &&
               startingPoints.includes(9),
