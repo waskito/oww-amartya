@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Text, Container, Flex, Box, Button, Fade } from "@chakra-ui/react";
 import clsx from "clsx";
 import videojs from "video.js";
+import ReactAudioPlayer from "react-audio-player";
 import VREPlayer from "videojs-react-enhanced";
 
 import { mintingStages, mintStages } from "./constants";
@@ -24,13 +25,14 @@ export default function Mint({
   setStage,
   setTotal,
 }): React.ReactElement {
+  const audioRef = useRef(null);
   const [currentState, setCurrentState] = useState(
     mintingStages.connectAllGate
   );
   const [value, setValue] = useState(3);
 
   const options: VREPlayer.IPlayerOptions = {
-    src: "https://user-images.githubusercontent.com/4341116/194508188-9af74b13-0c8b-40b9-b941-ded924510acc.mp4",
+    src: "https://user-images.githubusercontent.com/4341116/199644353-36dd8fc6-9eaf-4140-9994-48bff8be9987.mp4",
     controls: false,
     autoplay: "play",
   };
@@ -71,6 +73,16 @@ export default function Mint({
     }
   }, [currentState, value]);
 
+  const handleSelectPoint = () => {
+    const playerEl = audioRef as any;
+    const player = playerEl?.current?.audioEl?.current;
+    if (player) {
+      player.pause();
+      player.currentTime = 0;
+      player.play();
+    }
+  };
+
   return (
     <MintLayout
       handleMute={handleMute}
@@ -80,8 +92,8 @@ export default function Mint({
     >
       <Container w="100%" maxW="1440px">
         <Flex
-          w="754px"
-          h="746px"
+          w={{ base: "603px", xl: "754px" }}
+          h={{ base: "596px", xl: "746px" }}
           pos="relative"
           justifyContent="center"
           alignItems="center"
@@ -91,7 +103,13 @@ export default function Mint({
           sx={{ "&.isHidden": { display: "none !important" } }}
         >
           <Fade in>
-            <Box w="754px" h="746px" pos="absolute" top="0" left="0">
+            <Box
+              w={{ base: "603px", xl: "754px" }}
+              h={{ base: "596px", xl: "746px" }}
+              pos="absolute"
+              top="0"
+              left="0"
+            >
               <Gates />
             </Box>
           </Fade>
@@ -120,6 +138,8 @@ export default function Mint({
           </Fade>
         </Flex>
         <Flex
+          // w={{ base: "700px", xl: "876px" }}
+          // h={{ base: "694px", xl: "868px" }}
           w="876px"
           h="868px"
           pos="relative"
@@ -138,14 +158,27 @@ export default function Mint({
             in={currentState === mintingStages.allGateLoading}
             unmountOnExit
           >
-            <Box w="754px" h="746px" pos="absolute" top="0" left="0">
+            <Box
+              w={{ base: "700px", xl: "876px" }}
+              h={{ base: "694px", xl: "868px" }}
+              pos="absolute"
+              top={{ base: "calc(50% - 350px)", xl: "0" }}
+              left={{ base: "calc(50% - 347px)", xl: "0" }}
+            >
               <GatesLoading
                 onAnimationFinished={() => setCurrentState(mintingStages.video)}
+                onSelectCallback={handleSelectPoint}
               />
             </Box>
           </Fade>
           <Fade in={groupMinting.includes(currentState)} unmountOnExit>
-            <Box w="754px" h="746px" pos="absolute" top="0" left="0">
+            <Box
+              w={{ base: "700px", xl: "876px" }}
+              h={{ base: "694px", xl: "868px" }}
+              pos="absolute"
+              top={{ base: "calc(50% - 350px)", xl: "0" }}
+              left={{ base: "calc(50% - 347px)", xl: "0" }}
+            >
               <GatesLoading disableAnim />
             </Box>
           </Fade>
@@ -454,6 +487,13 @@ export default function Mint({
           </Box>
         </Flex>
       </Container>
+      <ReactAudioPlayer
+        ref={audioRef}
+        listenInterval={1000}
+        src="/images/match.mp3"
+        controls={false}
+        style={{ visibility: "hidden" }}
+      />
     </MintLayout>
   );
 }

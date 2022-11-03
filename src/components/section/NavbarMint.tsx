@@ -19,7 +19,7 @@ const NavbarMint: React.FC<Props> = ({ isMuted, handleMute }: Props) => {
               <a>
                 <Image
                   id="logo"
-                  src="/images/logo-amartya-white-intro.png"
+                  src="/images/logo-amartya-white-text.png"
                   width={140}
                   height={140}
                 />

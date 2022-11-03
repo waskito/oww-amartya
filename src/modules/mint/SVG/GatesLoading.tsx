@@ -5,6 +5,7 @@ import sleep from "sleep-promise";
 
 interface Props {
   onAnimationFinished?: () => void;
+  onSelectCallback?: () => void;
   disableAnim?: boolean;
 }
 
@@ -17,6 +18,7 @@ const triangleGroups = {
 export default function GatesLoading({
   onAnimationFinished,
   disableAnim = false,
+  onSelectCallback,
 }: Props): React.ReactElement {
   const [startingPoints, setStartingPoints] = useState([]);
   const [visibleGroups, setVisibleGroups] = useState([]);
@@ -24,6 +26,7 @@ export default function GatesLoading({
 
   const handleSelect = (selected, start, isSelected) => {
     if (isSelected || disableAnim) return;
+    if (isFunction(onSelectCallback)) onSelectCallback();
     setStartingPoints([...startingPoints, start]);
     setVisibleGroups([...visibleGroups, triangleGroups[selected]]);
   };
@@ -56,6 +59,10 @@ export default function GatesLoading({
             stroke-dashoffset: 0;
           }
         }
+        .gate {
+          width: 100%;
+          height: 100%;
+        }
         .yellowPath {
           stroke-dasharray: 1361.696044921875;
           stroke-dashoffset: 1361.696044921875;
@@ -82,8 +89,6 @@ export default function GatesLoading({
         }
       `}</style>
       <svg
-        width="876"
-        height="868"
         viewBox="0 0 876 868"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
