@@ -55,13 +55,11 @@ export default function Mint({
     setTotal(total);
     await sleep(5 * 1000);
     setCurrentState(TRANSITION);
-    await sleep(1 * 1000);
+    await sleep(0.5 * 1000);
     setCurrentState(mintingStages.video);
   }, []);
 
   const onWatchedCallback = useCallback(async () => {
-    setCurrentState(TRANSITION);
-    await sleep(1 * 1000);
     setStage(mintStages.minted);
   }, [currentState]);
 
