@@ -8,7 +8,6 @@ import VREPlayer from "videojs-react-enhanced";
 import { mintingStages, mintStages } from "./constants";
 
 import MintLayout from "./MintLayout";
-import Gates from "./SVG/Gates";
 import GatesLoading from "./SVG/GatesLoading";
 import { Minus, MoreRight, Plus } from "components/Icons";
 import sleep from "sleep-promise";
@@ -91,8 +90,8 @@ export default function Mint({
     >
       <Container w="100%" maxW="1440px">
         <Flex
-          w={{ base: "603px", xl: "754px" }}
-          h={{ base: "596px", xl: "746px" }}
+          w="876px"
+          h="868px"
           pos="relative"
           justifyContent="center"
           alignItems="center"
@@ -103,13 +102,13 @@ export default function Mint({
         >
           <Fade in>
             <Box
-              w={{ base: "603px", xl: "754px" }}
-              h={{ base: "596px", xl: "746px" }}
+              w={{ base: "700px", xl: "876px" }}
+              h={{ base: "694px", xl: "868px" }}
               pos="absolute"
-              top="0"
-              left="0"
+              top={{ base: "calc(50% - 350px)", xl: "0" }}
+              left={{ base: "calc(50% - 347px)", xl: "0" }}
             >
-              <Gates />
+              <GatesLoading firstGate />
             </Box>
           </Fade>
           <Fade in>
@@ -137,8 +136,6 @@ export default function Mint({
           </Fade>
         </Flex>
         <Flex
-          // w={{ base: "700px", xl: "876px" }}
-          // h={{ base: "694px", xl: "868px" }}
           w="876px"
           h="868px"
           pos="relative"
@@ -199,9 +196,6 @@ export default function Mint({
             <VREPlayer
               playerOptions={options}
               videojsOptions={videojsOptions}
-              //   onReady={(player) => console.log(player)}
-              //   onPlay={(e, _, second) => console.log("Play!")}
-              //   onPause={(e, _, second) => console.log("Pause!")}
               onEnded={(e, _) => onWatchedCallback()}
             />
             <Button
