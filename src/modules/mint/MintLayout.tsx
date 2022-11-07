@@ -51,6 +51,7 @@ const MintLayout: React.FC<Props> = ({
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"
+        overflowY="hidden"
       >
         <Box
           pos="absolute"
@@ -96,6 +97,7 @@ const MintLayout: React.FC<Props> = ({
             isHidden: !redBackgroundStages.includes(stage),
           })}
           sx={{ "&.isHidden": { display: "none !important" } }}
+          overflowY="hidden"
         >
           <Box
             pos="absolute"
