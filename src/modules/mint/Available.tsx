@@ -19,7 +19,7 @@ export default function AvailableSection({
       <Container w="100%" maxW="1440px">
         <Flex
           flexDir="column"
-          gap="51px"
+          gap={{ base: "16px", xl: "51px" }}
           w="100%"
           alignItems="center"
           justifyContent="center"

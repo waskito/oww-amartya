@@ -27,7 +27,7 @@ export default function CountdownSection({
       <Container w="100%" maxW="1440px" overflowY="hidden">
         <Flex
           flexDir="column"
-          gap="51px"
+          gap={{ base: "16px", xl: "51px" }}
           w="100%"
           alignItems="center"
           justifyContent="center"

@@ -51,6 +51,7 @@ const MintLayout: React.FC<Props> = ({
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"
+        overflowY="hidden"
       >
         <Box
           pos="absolute"
