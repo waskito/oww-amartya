@@ -6,6 +6,7 @@ import { Mute, Unmute } from "components/Icons";
 
 import NavbarMint from "components/section/NavbarMint";
 import { mintStages } from "./constants";
+import Image from "next/image";
 
 const greenBackgroundStages = [
   mintStages.countdown,
@@ -64,14 +65,22 @@ const MintLayout: React.FC<Props> = ({
           className={clsx({
             isHidden: !greenBackgroundStages.includes(stage),
           })}
-          sx={{ "&.isHidden": { display: "none !important" } }}
+          sx={{
+            overflowY: "hidden",
+            "&.isHidden": { display: "none !important" },
+          }}
         >
           <Box
-            bg="url(/images/mint/tara-gate.png) no-repeat"
-            backgroundSize="cover"
-            h="828px"
-            w="535px"
-          />
+            h={{ base: "745px", xl: "828px" }}
+            w={{ base: "481px", xl: "535px" }}
+            pos="relative"
+          >
+            <Image
+              src="/images/mint/tara-gate.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </Box>
         </Box>
         <Box
           pos="absolute"
