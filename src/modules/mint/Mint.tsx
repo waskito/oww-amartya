@@ -91,7 +91,7 @@ export default function Mint({
       <Container w="100%" maxW="1440px">
         <Flex
           w="876px"
-          h="868px"
+          h={{ base: "auto", xl: "868px" }}
           pos="relative"
           justifyContent="center"
           alignItems="center"
@@ -137,7 +137,7 @@ export default function Mint({
         </Flex>
         <Flex
           w="876px"
-          h="868px"
+          h={{ base: "auto", xl: "868px" }}
           pos="relative"
           justifyContent="center"
           alignItems="center"
