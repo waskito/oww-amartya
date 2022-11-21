@@ -54,6 +54,12 @@ const MintPage = ({ handleMute, isMuted }: Props) => {
           href="/images/mint/mint-black-button-288.webp"
           key="bg_black_button"
         />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mint/gateneutral.webp"
+          key="gate_neutral"
+        />
       </Head>
       <MintMainComponent
         isMuted={isMuted}
