@@ -77,7 +77,7 @@ const MintLayout: React.FC<Props> = ({
             pos="relative"
           >
             <Image
-              src="/images/mint/tara-gate.png"
+              src="/images/mint/gateneutral.webp"
               layout="fill"
               objectFit="contain"
             />
